@@ -12,7 +12,7 @@ class Cuisine {
 
     let cuisineType: CuisineChoices
     let topFiveFoods: [Dish]
-    private var winningTally: Int = 0
+    private(set) var winningTally: Int = 0
 
     init(cuisineType: CuisineChoices, topFiveFoods: [String]) {
         self.cuisineType = cuisineType

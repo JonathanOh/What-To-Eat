@@ -12,10 +12,25 @@
 		84DECFDE1F6108DF00236995 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84DECFDD1F6108DF00236995 /* Assets.xcassets */; };
 		84DECFE11F6108DF00236995 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84DECFDF1F6108DF00236995 /* LaunchScreen.storyboard */; };
 		84DECFE91F610BC200236995 /* CuisineChoices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DECFE81F610BC200236995 /* CuisineChoices.swift */; };
-		84DECFEB1F610C9000236995 /* FoodTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DECFEA1F610C9000236995 /* FoodTracker.swift */; };
+		84DECFEB1F610C9000236995 /* FoodTrackingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DECFEA1F610C9000236995 /* FoodTrackingSession.swift */; };
 		84DECFED1F61120400236995 /* Cuisine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DECFEC1F61120400236995 /* Cuisine.swift */; };
 		84DECFEF1F61149E00236995 /* Dish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DECFEE1F61149E00236995 /* Dish.swift */; };
+		84DECFF81F6138CE00236995 /* What_To_EatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DECFF71F6138CE00236995 /* What_To_EatTests.swift */; };
+		84DECFFF1F613A1B00236995 /* Cuisine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DECFEC1F61120400236995 /* Cuisine.swift */; };
+		84DED0001F613A3F00236995 /* FoodTrackingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DECFEA1F610C9000236995 /* FoodTrackingSession.swift */; };
+		84DED0011F613BB700236995 /* CuisineChoices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DECFE81F610BC200236995 /* CuisineChoices.swift */; };
+		84DED0021F613BBB00236995 /* Dish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DECFEE1F61149E00236995 /* Dish.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		84DECFFA1F6138CE00236995 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84DECFCB1F6108DF00236995 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 84DECFD21F6108DF00236995;
+			remoteInfo = "What To Eat";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		84DECFD31F6108DF00236995 /* What To Eat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "What To Eat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -25,13 +40,23 @@
 		84DECFE01F6108DF00236995 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84DECFE21F6108DF00236995 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84DECFE81F610BC200236995 /* CuisineChoices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuisineChoices.swift; sourceTree = "<group>"; };
-		84DECFEA1F610C9000236995 /* FoodTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodTracker.swift; sourceTree = "<group>"; };
+		84DECFEA1F610C9000236995 /* FoodTrackingSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodTrackingSession.swift; sourceTree = "<group>"; };
 		84DECFEC1F61120400236995 /* Cuisine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cuisine.swift; sourceTree = "<group>"; };
 		84DECFEE1F61149E00236995 /* Dish.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dish.swift; sourceTree = "<group>"; };
+		84DECFF51F6138CE00236995 /* What To EatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "What To EatTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		84DECFF71F6138CE00236995 /* What_To_EatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = What_To_EatTests.swift; sourceTree = "<group>"; };
+		84DECFF91F6138CE00236995 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		84DECFD01F6108DF00236995 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84DECFF21F6138CE00236995 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -45,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				84DECFD51F6108DF00236995 /* What To Eat */,
+				84DECFF61F6138CE00236995 /* What To EatTests */,
 				84DECFD41F6108DF00236995 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -53,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				84DECFD31F6108DF00236995 /* What To Eat.app */,
+				84DECFF51F6138CE00236995 /* What To EatTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -62,15 +89,32 @@
 			children = (
 				84DECFD61F6108DF00236995 /* AppDelegate.swift */,
 				84DECFD81F6108DF00236995 /* FoodChoiceVC.swift */,
+				84DECFF01F61331400236995 /* Models */,
 				84DECFE81F610BC200236995 /* CuisineChoices.swift */,
-				84DECFEA1F610C9000236995 /* FoodTracker.swift */,
-				84DECFEC1F61120400236995 /* Cuisine.swift */,
-				84DECFEE1F61149E00236995 /* Dish.swift */,
 				84DECFDD1F6108DF00236995 /* Assets.xcassets */,
 				84DECFDF1F6108DF00236995 /* LaunchScreen.storyboard */,
 				84DECFE21F6108DF00236995 /* Info.plist */,
 			);
 			path = "What To Eat";
+			sourceTree = "<group>";
+		};
+		84DECFF01F61331400236995 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				84DECFEC1F61120400236995 /* Cuisine.swift */,
+				84DECFEE1F61149E00236995 /* Dish.swift */,
+				84DECFEA1F610C9000236995 /* FoodTrackingSession.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		84DECFF61F6138CE00236995 /* What To EatTests */ = {
+			isa = PBXGroup;
+			children = (
+				84DECFF71F6138CE00236995 /* What_To_EatTests.swift */,
+				84DECFF91F6138CE00236995 /* Info.plist */,
+			);
+			path = "What To EatTests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -93,6 +137,24 @@
 			productReference = 84DECFD31F6108DF00236995 /* What To Eat.app */;
 			productType = "com.apple.product-type.application";
 		};
+		84DECFF41F6138CE00236995 /* What To EatTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84DECFFC1F6138CE00236995 /* Build configuration list for PBXNativeTarget "What To EatTests" */;
+			buildPhases = (
+				84DECFF11F6138CE00236995 /* Sources */,
+				84DECFF21F6138CE00236995 /* Frameworks */,
+				84DECFF31F6138CE00236995 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				84DECFFB1F6138CE00236995 /* PBXTargetDependency */,
+			);
+			name = "What To EatTests";
+			productName = "What To EatTests";
+			productReference = 84DECFF51F6138CE00236995 /* What To EatTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -107,6 +169,12 @@
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = KQ85KX5DW2;
 						ProvisioningStyle = Automatic;
+					};
+					84DECFF41F6138CE00236995 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = KQ85KX5DW2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 84DECFD21F6108DF00236995;
 					};
 				};
 			};
@@ -124,6 +192,7 @@
 			projectRoot = "";
 			targets = (
 				84DECFD21F6108DF00236995 /* What To Eat */,
+				84DECFF41F6138CE00236995 /* What To EatTests */,
 			);
 		};
 /* End PBXProject section */
@@ -138,6 +207,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		84DECFF31F6138CE00236995 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -145,7 +221,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84DECFEB1F610C9000236995 /* FoodTracker.swift in Sources */,
+				84DECFEB1F610C9000236995 /* FoodTrackingSession.swift in Sources */,
 				84DECFED1F61120400236995 /* Cuisine.swift in Sources */,
 				84DECFD91F6108DF00236995 /* FoodChoiceVC.swift in Sources */,
 				84DECFEF1F61149E00236995 /* Dish.swift in Sources */,
@@ -154,7 +230,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		84DECFF11F6138CE00236995 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84DECFFF1F613A1B00236995 /* Cuisine.swift in Sources */,
+				84DED0021F613BBB00236995 /* Dish.swift in Sources */,
+				84DED0011F613BB700236995 /* CuisineChoices.swift in Sources */,
+				84DED0001F613A3F00236995 /* FoodTrackingSession.swift in Sources */,
+				84DECFF81F6138CE00236995 /* What_To_EatTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		84DECFFB1F6138CE00236995 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 84DECFD21F6108DF00236995 /* What To Eat */;
+			targetProxy = 84DECFFA1F6138CE00236995 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		84DECFDF1F6108DF00236995 /* LaunchScreen.storyboard */ = {
@@ -289,6 +385,34 @@
 			};
 			name = Release;
 		};
+		84DECFFD1F6138CE00236995 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = KQ85KX5DW2;
+				INFOPLIST_FILE = "What To EatTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.esohjay.What-To-EatTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/What To Eat.app/What To Eat";
+			};
+			name = Debug;
+		};
+		84DECFFE1F6138CE00236995 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = KQ85KX5DW2;
+				INFOPLIST_FILE = "What To EatTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.esohjay.What-To-EatTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/What To Eat.app/What To Eat";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -306,6 +430,14 @@
 			buildConfigurations = (
 				84DECFE61F6108DF00236995 /* Debug */,
 				84DECFE71F6108DF00236995 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		84DECFFC1F6138CE00236995 /* Build configuration list for PBXNativeTarget "What To EatTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84DECFFD1F6138CE00236995 /* Debug */,
+				84DECFFE1F6138CE00236995 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
