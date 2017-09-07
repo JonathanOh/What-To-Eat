@@ -12,18 +12,39 @@ import Foundation
 class FoodTrackingSession {
 
     struct Constants {
-        static let maximumLosingRounds: Int = 2
+        static let maxAllowedCuisineLosses: Int = 2
+        static let dishChoicesPerRound: Int = 3
     }
     
-    let possibleFoods: [Dish]
+    private var eligibleCuisinesForRound: [Cuisine]
     
-    init(possibleFoods: [Dish]) {
-        self.possibleFoods = possibleFoods
+    init(eligibleCuisinesForRound: [Cuisine]) {
+        self.eligibleCuisinesForRound = eligibleCuisinesForRound
+    }
+    
+    private func checkCuisinesToDisqualify(byCuisines: [Cuisine]) -> [Cuisine] {
+        return byCuisines.filter { $0.losingTally <= Constants.maxAllowedCuisineLosses }
+    }
+    
+    private func updateEligibleCuisines() {
+        eligibleCuisinesForRound = checkCuisinesToDisqualify(byCuisines: eligibleCuisinesForRound)
+    }
+    
+    func getDishChoiceFromEligibleCuisines(_ cuisines:[Cuisine], amountOfDishesToReturn: Int) -> [Dish] {
+        let eligibleCuisines = checkCuisinesToDisqualify(byCuisines: cuisines)
+        if eligibleCuisines.count > amountOfDishesToReturn {
+            return []
+        } else {
+            return eligibleCuisines.map { cuisine -> Dish in
+                let randomNumber: Int = Int(arc4random_uniform(UInt32(Dish.Constants.maxAmountOfDishes)))
+                return cuisine.topFiveFoods[randomNumber]
+            }
+        }
     }
     
     func getRoundChoices(_ cuisines: [CuisineChoices]) -> [Dish] {
         // This is where we input logic to choose 3 cuisines for user to choose from
-        return possibleFoods
+        return []
     }
     
     func cuisineDidWin(_ cuisine: Cuisine) {

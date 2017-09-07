@@ -20,4 +20,11 @@ class RoundTracker {
         return []
     }
     
+    func submitEndOfRoundData() {
+        roundCleanUp()
+    }
+    func roundCleanUp() {
+        currentRound += 1
+    }
+    
 }
