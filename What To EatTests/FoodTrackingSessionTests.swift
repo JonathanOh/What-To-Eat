@@ -21,15 +21,13 @@ class FoodTrackingSessionTests: XCTestCase {
     }
     
     func testCurrentWinner() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
         let korean: Cuisine = Cuisine(cuisineType: .korean, topFiveFoods: ["bibimbap", "bulgogi", "soondoobu"])
         let american: Cuisine = Cuisine(cuisineType: .american, topFiveFoods: ["burgers", "steak", "hot dogs"])
         let chinese: Cuisine = Cuisine(cuisineType: .chinese, topFiveFoods: ["orange chicken", "chow fun", "broccoli beef"])
         let cuisineArray: [Cuisine] = [korean, american, chinese]
         
         let sessionOne: FoodTrackingSession = FoodTrackingSession(possibleFoods: cuisineArray)
-        
+        XCTAssert(sessionOne.currentWinner([]).isEmpty)
         XCTAssert(sessionOne.currentWinner(cuisineArray).isEmpty)
         korean.wonRound()
         XCTAssert(sessionOne.currentWinner(cuisineArray)[0].winningTally == 1)
