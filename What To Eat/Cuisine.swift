@@ -14,7 +14,7 @@ class Cuisine {
     let topFiveFoods: [Dish]
     private(set) var winningTally: Int = 0
 
-    init(cuisineType: CuisineChoices, topFiveFoods: [String]) {
+    init(cuisineType: CuisineChoices, topFiveFoods: [PossibleDishes]) {
         self.cuisineType = cuisineType
         self.topFiveFoods = topFiveFoods.map { Dish(dishName: $0) }
     }

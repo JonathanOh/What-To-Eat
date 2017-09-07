@@ -15,9 +15,9 @@ class FoodChoiceVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        cuisines.append(Cuisine(cuisineType: .korean, topFiveFoods: ["bibimbap", "bulgogi", "soondoobu"]))
-        cuisines.append(Cuisine(cuisineType: .american, topFiveFoods: ["burgers", "steak", "hot dogs"]))
-        cuisines.append(Cuisine(cuisineType: .chinese, topFiveFoods: ["orange chicken", "chow fun", "broccoli beef"]))
+        cuisines.append(Cuisine(cuisineType: .korean, topFiveFoods: [.bibimbap, .bulgogi, .soontofu]))
+        cuisines.append(Cuisine(cuisineType: .american, topFiveFoods: [.burgers, .steak, .hotDog]))
+        cuisines.append(Cuisine(cuisineType: .chinese, topFiveFoods: [.orangeChicken, .chowFun, .broccoliBeef]))
         
         view.backgroundColor = .red
     }

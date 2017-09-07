@@ -27,3 +27,15 @@ enum CuisineChoices: String {
     case noodles
     case seafood
 }
+
+enum PossibleDishes: String {
+    case bibimbap
+    case bulgogi
+    case soontofu
+    case burgers
+    case steak
+    case hotDog = "hot dog"
+    case orangeChicken = "orange chicken"
+    case chowFun = "chow fun"
+    case broccoliBeef = "broccoli beef"
+}

@@ -21,26 +21,27 @@ class FoodTrackingSessionTests: XCTestCase {
     }
     
     func testCurrentWinner() {
-        let korean: Cuisine = Cuisine(cuisineType: .korean, topFiveFoods: ["bibimbap", "bulgogi", "soondoobu"])
-        let american: Cuisine = Cuisine(cuisineType: .american, topFiveFoods: ["burgers", "steak", "hot dogs"])
-        let chinese: Cuisine = Cuisine(cuisineType: .chinese, topFiveFoods: ["orange chicken", "chow fun", "broccoli beef"])
-        let cuisineArray: [Cuisine] = [korean, american, chinese]
+        let bibimbap: Dish = Dish(dishName: .bibimbap)
+        let burgers: Dish = Dish(dishName: .burgers)
+        let chowFun: Dish = Dish(dishName: .chowFun)
         
-        let sessionOne: FoodTrackingSession = FoodTrackingSession(possibleFoods: cuisineArray)
+        let dishArray: [Dish] = [bibimbap, burgers, chowFun]
+        
+        let sessionOne: FoodTrackingSession = FoodTrackingSession(possibleFoods: dishArray)
         XCTAssert(sessionOne.currentWinner([]).isEmpty)
-        XCTAssert(sessionOne.currentWinner(cuisineArray).isEmpty)
-        korean.wonRound()
-        XCTAssert(sessionOne.currentWinner(cuisineArray)[0].winningTally == 1)
-        XCTAssert(sessionOne.currentWinner(cuisineArray)[0] === korean)
-        american.wonRound()
-        XCTAssert(sessionOne.currentWinner(cuisineArray)[0].winningTally == 1)
-        XCTAssert(sessionOne.currentWinner(cuisineArray).count == 2)
-        american.wonRound()
-        chinese.lostRound()
-        XCTAssert(sessionOne.currentWinner(cuisineArray)[0] === american)
-        XCTAssert(sessionOne.currentWinner(cuisineArray).count == 1)
-        XCTAssert(!sessionOne.currentWinner(cuisineArray).isEmpty)
-        XCTAssert(sessionOne.currentWinner(cuisineArray)[0].winningTally == 2)
+        XCTAssert(sessionOne.currentWinner(dishArray).isEmpty)
+        bibimbap.wonRound()
+        XCTAssert(sessionOne.currentWinner(dishArray)[0].winningTally == 1)
+        XCTAssert(sessionOne.currentWinner(dishArray)[0] === bibimbap)
+        burgers.wonRound()
+        XCTAssert(sessionOne.currentWinner(dishArray)[0].winningTally == 1)
+        XCTAssert(sessionOne.currentWinner(dishArray).count == 2)
+        burgers.wonRound()
+        chowFun.lostRound()
+        XCTAssert(sessionOne.currentWinner(dishArray)[0] === burgers)
+        XCTAssert(sessionOne.currentWinner(dishArray).count == 1)
+        XCTAssert(!sessionOne.currentWinner(dishArray).isEmpty)
+        XCTAssert(sessionOne.currentWinner(dishArray)[0].winningTally == 2)
         
     }
 }
