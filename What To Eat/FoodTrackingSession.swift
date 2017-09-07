@@ -21,7 +21,7 @@ class FoodTrackingSession {
         self.possibleFoods = possibleFoods
     }
     
-    func getRoundChoices(_ cuisines: [Dish]) -> [Dish] {
+    func getRoundChoices(_ cuisines: [CuisineChoices]) -> [Dish] {
         // This is where we input logic to choose 3 cuisines for user to choose from
         return possibleFoods
     }

@@ -8,13 +8,12 @@
 
 import Foundation
 
-class Dish {
+class Dish: WinTracker {
     
     struct Constants {
         static let maxAmountOfDishes: Int = 5
     }
     let dishName: PossibleDishes
-    private(set) var winningTally: Int = 0
 
     //let cuisine: [CuisineChoices]
     //let images: [String]
@@ -22,18 +21,5 @@ class Dish {
     init(dishName: PossibleDishes) {
         self.dishName = dishName
     }
-    
-    func wonRound() {
-        winningTally += 1
-    }
-    
-    func lostRound() {
-        // Maybe no penalty for now
-    }
-    
-    func resetWinningTally() {
-        winningTally = 0
-    }
-
     
 }

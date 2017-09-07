@@ -8,26 +8,13 @@
 
 import Foundation
 
-class Cuisine {
+class Cuisine: WinTracker {
 
     let cuisineType: CuisineChoices
     let topFiveFoods: [Dish]
-    private(set) var winningTally: Int = 0
-
+    
     init(cuisineType: CuisineChoices, topFiveFoods: [PossibleDishes]) {
         self.cuisineType = cuisineType
         self.topFiveFoods = topFiveFoods.map { Dish(dishName: $0) }
-    }
-    
-    func wonRound() {
-        winningTally += 1
-    }
-    
-    func lostRound() {
-        // Maybe no penalty for now
-    }
-    
-    func resetWinningTally() {
-        winningTally = 0
     }
 }
