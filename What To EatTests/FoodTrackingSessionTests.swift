@@ -1,8 +1,8 @@
 //
-//  What_To_EatTests.swift
+//  FoodTrackingSessionTests.swift
 //  What To EatTests
 //
-//  Created by admin on 9/7/17.
+//  Created by Jonathan Oh on 9/7/17.
 //  Copyright © 2017 esohjay. All rights reserved.
 //
 
@@ -44,5 +44,5 @@ class FoodTrackingSessionTests: XCTestCase {
         XCTAssert(!sessionOne.currentWinner(cuisineArray).isEmpty)
         XCTAssert(sessionOne.currentWinner(cuisineArray)[0].winningTally == 2)
         
-    }    
+    }
 }

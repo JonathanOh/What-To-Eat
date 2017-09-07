@@ -2,7 +2,7 @@
 //  Cuisine.swift
 //  What To Eat
 //
-//  Created by admin on 9/6/17.
+//  Created by Jonathan Oh on 9/6/17.
 //  Copyright © 2017 esohjay. All rights reserved.
 //
 
