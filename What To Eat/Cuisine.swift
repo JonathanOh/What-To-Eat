@@ -12,9 +12,16 @@ class Cuisine: WinTracker {
 
     let cuisineType: CuisineChoices
     let topFiveFoods: [Dish]
+    private var isEligibleCuisine: Bool = true {
+        didSet {
+            if isEligibleCuisine == false {
+                // logic to remove self from eligibility in round choices
+            }
+        }
+    }
     
     init(cuisineType: CuisineChoices, topFiveFoods: [PossibleDishes]) {
         self.cuisineType = cuisineType
-        self.topFiveFoods = topFiveFoods.map { Dish(dishName: $0) }
+        self.topFiveFoods = topFiveFoods.map { Dish(dishName: $0, cuisine: [cuisineType]) }
     }
 }

@@ -22,6 +22,8 @@
 		84DED0021F613BBB00236995 /* Dish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DECFEE1F61149E00236995 /* Dish.swift */; };
 		8B50BE481F61C4BC00202929 /* WinTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BE471F61C4BC00202929 /* WinTracker.swift */; };
 		8B50BE491F61C4BC00202929 /* WinTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BE471F61C4BC00202929 /* WinTracker.swift */; };
+		8B50BE4B1F61C69000202929 /* RoundTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BE4A1F61C69000202929 /* RoundTracker.swift */; };
+		8B50BE4C1F61C69000202929 /* RoundTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BE4A1F61C69000202929 /* RoundTracker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,7 @@
 		84DECFF71F6138CE00236995 /* FoodTrackingSessionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTrackingSessionTests.swift; sourceTree = "<group>"; };
 		84DECFF91F6138CE00236995 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B50BE471F61C4BC00202929 /* WinTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinTracker.swift; sourceTree = "<group>"; };
+		8B50BE4A1F61C69000202929 /* RoundTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundTracker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +111,7 @@
 				84DECFEE1F61149E00236995 /* Dish.swift */,
 				8B50BE471F61C4BC00202929 /* WinTracker.swift */,
 				84DECFEA1F610C9000236995 /* FoodTrackingSession.swift */,
+				8B50BE4A1F61C69000202929 /* RoundTracker.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -230,6 +234,7 @@
 				84DECFED1F61120400236995 /* Cuisine.swift in Sources */,
 				8B50BE481F61C4BC00202929 /* WinTracker.swift in Sources */,
 				84DECFD91F6108DF00236995 /* FoodChoiceVC.swift in Sources */,
+				8B50BE4B1F61C69000202929 /* RoundTracker.swift in Sources */,
 				84DECFEF1F61149E00236995 /* Dish.swift in Sources */,
 				84DECFD71F6108DF00236995 /* AppDelegate.swift in Sources */,
 				84DECFE91F610BC200236995 /* CuisineChoices.swift in Sources */,
@@ -244,6 +249,7 @@
 				84DED0021F613BBB00236995 /* Dish.swift in Sources */,
 				84DED0011F613BB700236995 /* CuisineChoices.swift in Sources */,
 				84DED0001F613A3F00236995 /* FoodTrackingSession.swift in Sources */,
+				8B50BE4C1F61C69000202929 /* RoundTracker.swift in Sources */,
 				84DECFF81F6138CE00236995 /* FoodTrackingSessionTests.swift in Sources */,
 				8B50BE491F61C4BC00202929 /* WinTracker.swift in Sources */,
 			);

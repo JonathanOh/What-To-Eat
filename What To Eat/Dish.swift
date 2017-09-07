@@ -14,12 +14,12 @@ class Dish: WinTracker {
         static let maxAmountOfDishes: Int = 5
     }
     let dishName: PossibleDishes
-
-    //let cuisine: [CuisineChoices]
+    let cuisine: [CuisineChoices]
     //let images: [String]
     
-    init(dishName: PossibleDishes) {
+    init(dishName: PossibleDishes, cuisine: [CuisineChoices]) {
         self.dishName = dishName
+        self.cuisine = cuisine
     }
     
 }

@@ -11,13 +11,20 @@ import Foundation
 class WinTracker {
  
     private(set) var winningTally: Int = 0
+    private(set) var losingTally: Int = 0 {
+        didSet {
+            if losingTally == 2 {
+                // Notify others to remove this from eligible participant
+            }
+        }
+    }
     
     func wonRound() {
         winningTally += 1
     }
     
     func lostRound() {
-        // Maybe no penalty for now
+        losingTally += 1
     }
     
     func resetWinningTally() {

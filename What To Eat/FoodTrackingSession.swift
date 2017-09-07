@@ -8,11 +8,11 @@
 
 import Foundation
 
+//  This class should be responsible for taking in results of the round and updating objects
 class FoodTrackingSession {
 
     struct Constants {
         static let maximumLosingRounds: Int = 2
-        static let numberOfUserChoices: Int = 3
     }
     
     let possibleFoods: [Dish]
@@ -24,6 +24,13 @@ class FoodTrackingSession {
     func getRoundChoices(_ cuisines: [CuisineChoices]) -> [Dish] {
         // This is where we input logic to choose 3 cuisines for user to choose from
         return possibleFoods
+    }
+    
+    func cuisineDidWin(_ cuisine: Cuisine) {
+        // logic to trigger this cuisine winner
+    }
+    func dishDidWin(_ dish: Dish) {
+        // logic ot trigger this dish winner
     }
     
     func resultOfRound(_ winner: Dish, losers: [Dish]) {

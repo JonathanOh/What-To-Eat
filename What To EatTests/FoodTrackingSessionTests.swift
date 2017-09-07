@@ -21,9 +21,9 @@ class FoodTrackingSessionTests: XCTestCase {
     }
     
     func testCurrentWinner() {
-        let bibimbap: Dish = Dish(dishName: .bibimbap)
-        let burgers: Dish = Dish(dishName: .burgers)
-        let chowFun: Dish = Dish(dishName: .chowFun)
+        let bibimbap: Dish = Dish(dishName: .bibimbap, cuisine: [.korean])
+        let burgers: Dish = Dish(dishName: .burgers, cuisine: [.american])
+        let chowFun: Dish = Dish(dishName: .chowFun, cuisine: [.chinese])
         
         let dishArray: [Dish] = [bibimbap, burgers, chowFun]
         
