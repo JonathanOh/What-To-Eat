@@ -19,4 +19,9 @@ class RoundResults {
         self.losingDishes = losingDishes
         self.eligibleCuisines = eligibleCuisines
     }
+    
+    func submit() {
+        FoodTrackingSession.resultOfRound(winningDish, losers: losingDishes)
+    }
+    
 }

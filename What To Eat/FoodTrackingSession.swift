@@ -11,26 +11,16 @@ import Foundation
 //  This class should be responsible for taking in results of the round and updating objects
 class FoodTrackingSession {
     
-//    private(set) var eligibleCuisinesForRound: [Cuisine]
-//    
-//    init(eligibleCuisinesForRound: [Cuisine]) {
-//        self.eligibleCuisinesForRound = eligibleCuisinesForRound
-//    }
-    
     static func checkCuisinesToDisqualify(byCuisines: [Cuisine]) -> [Cuisine] {
         return byCuisines.filter { $0.losingTally <= Rules.Disqualify.maxAllowedCuisineLosses }
     }
-//    
-//    private func updateEligibleCuisines() {
-//        eligibleCuisinesForRound = checkCuisinesToDisqualify(byCuisines: eligibleCuisinesForRound)
-//    }
-    
+
     static func getRandomDishesFrom(_ dishes: [Dish], amountOfDishesToReturn: Int) -> [Dish] {
-        if dishes.count > amountOfDishesToReturn { return [] }
+        if dishes.count < amountOfDishesToReturn { return [] }
         var dishesToReturn: [Dish] = []
         var indexTracker: [Int] = []
         while dishesToReturn.count < amountOfDishesToReturn {
-            let randomNumber = amountOfDishesToReturn.randomNumberWithSelfAsMaximum()
+            let randomNumber = dishes.count.randomNumberWithSelfAsMaximum()
             if !indexTracker.contains(randomNumber) {
                 indexTracker.append(randomNumber)
                 dishesToReturn.append(dishes[randomNumber])
@@ -41,7 +31,7 @@ class FoodTrackingSession {
     
     static func getDishChoiceFromEligibleCuisines(_ cuisines:[Cuisine], amountOfDishesToReturn: Int) -> [Dish] {
         let eligibleCuisines = checkCuisinesToDisqualify(byCuisines: cuisines)
-        if eligibleCuisines.count > amountOfDishesToReturn {
+        if eligibleCuisines.count < amountOfDishesToReturn {
             return []
         } else {
             let dishes =  eligibleCuisines.map { cuisine -> Dish in
@@ -52,7 +42,7 @@ class FoodTrackingSession {
         }
     }
     
-    func resultOfRound(_ winner: Dish, losers: [Dish]) {
+    static func resultOfRound(_ winner: Dish, losers: [Dish]) {
         winner.wonRound()
         _ = losers.map { $0.lostRound() }
     }

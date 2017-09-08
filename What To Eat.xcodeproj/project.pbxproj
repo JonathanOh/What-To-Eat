@@ -109,6 +109,7 @@
 				84DECFD81F6108DF00236995 /* FoodChoiceVC.swift */,
 				84DECFF01F61331400236995 /* Models */,
 				84DECFE81F610BC200236995 /* CuisineChoices.swift */,
+				8B50BE4D1F62108100202929 /* Extensions.swift */,
 				84DED0061F624C8200236995 /* Constants.swift */,
 				84DECFDD1F6108DF00236995 /* Assets.xcassets */,
 				84DECFDF1F6108DF00236995 /* LaunchScreen.storyboard */,
@@ -126,7 +127,6 @@
 				8B50BE501F621BCE00202929 /* WinChecker.swift */,
 				84DED0031F6247AA00236995 /* RoundResults.swift */,
 				84DECFEA1F610C9000236995 /* FoodTrackingSession.swift */,
-				8B50BE4D1F62108100202929 /* Extensions.swift */,
 				8B50BE4A1F61C69000202929 /* RoundCreator.swift */,
 			);
 			name = Models;

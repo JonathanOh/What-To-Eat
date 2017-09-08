@@ -41,7 +41,7 @@ struct DefaultValues {
         Cuisine(cuisineType: .salad, topFiveFoods: [.saladA, .saladB, .saladC, .saladD, .saladE]),
         Cuisine(cuisineType: .deli, topFiveFoods: [.deliA, .deliB, .deliC, .deliD, .deliE]),
         Cuisine(cuisineType: .sushi, topFiveFoods: [.sushiA, .sushiB, .sushiC, .sushiD, .sushiE]),
-        Cuisine(cuisineType: .fastFood, topFiveFoods: [.fastFoodA, .fastFoodB, .fastFoodC, .fastFoodD]),
+        Cuisine(cuisineType: .fastFood, topFiveFoods: [.fastFoodA, .fastFoodB, .fastFoodC, .fastFoodD, .fastFoodE]),
         Cuisine(cuisineType: .noodles, topFiveFoods: [.noodlesA, .noodlesB, .noodlesC, .noodlesD, .noodlesE]),
         Cuisine(cuisineType: .seafood, topFiveFoods: [.seafoodA, .seafoodB, .seafoodC, .seafoodD, .seafoodE])
     ]
