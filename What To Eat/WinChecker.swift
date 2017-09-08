@@ -9,5 +9,7 @@
 import Foundation
 
 class WinChecker {
-    
+    // if dish gets +2, search dish string
+    // if cuisine gets 3, search cuisine string
+    // if round 15, random dish out of all the highest point dishes
 }
