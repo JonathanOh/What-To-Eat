@@ -26,8 +26,14 @@ class WinChecker {
     }
     
     // if round 15, random dish out of all the highest point dishes
+    // TODO: Logic to return all tied cuisines.  Currently only returning first cuisine to hit 2 win tallies
     static func getWinnerByMaxRound(_ cuisines: [Cuisine], round: Int) -> [Cuisine]? {
         if round <= Rules.maximumNumberOfRounds { return nil }
+        for cuisine in cuisines {
+            if cuisine.getTotalCuisineWins(cuisine.topFiveFoods) >= 2 {
+                return [cuisine]
+            }
+        }
         return nil
     }
     

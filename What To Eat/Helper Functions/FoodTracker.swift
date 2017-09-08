@@ -46,24 +46,4 @@ class FoodTracker {
         winner.wonRound()
         _ = losers.map { $0.lostRound() }
     }
-    
-    func currentWinner(_ dishes: [Dish]) -> [Dish] {
-        var currentWinners: [Dish] = []
-        for dish in dishes {
-            if currentWinners.isEmpty {
-                if dish.winningTally > 0 {
-                    currentWinners.append(dish)
-                }
-            } else {
-                // We know currentWinners is not empty, compare first item to current iteration winningTally
-                if currentWinners[0].winningTally == dish.winningTally {
-                    currentWinners.append(dish)
-                } else if currentWinners[0].winningTally < dish.winningTally {
-                    currentWinners = [dish]
-                }
-            }
-        }
-        return currentWinners
-    }
-
 }
