@@ -13,12 +13,17 @@ extension MutableCollection where Index == Int {
     mutating func shuffle() {
         // empty and single-element collections don't shuffle
         if count < 2 { return }
-        
         for i in startIndex ..< endIndex - 1 {
             let randomIndex = Int(arc4random_uniform(UInt32(endIndex - i))) + i
             if i != randomIndex {
                 swap(&self[i], &self[randomIndex])
             }
         }
+    }
+}
+
+extension Int {
+    func randomNumberWithSelfAsMaximum() -> Int {
+        return Int(arc4random_uniform(UInt32(self)))
     }
 }

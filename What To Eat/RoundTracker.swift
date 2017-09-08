@@ -16,10 +16,6 @@ class RoundTracker {
     }
     private(set) var currentRound: Int = 1
     
-    func getDishFor(round: Int, eligibleCuisines: [Cuisine]) -> [Dish] {
-        return []
-    }
-    
     func submitEndOfRoundData() {
         roundCleanUp()
     }

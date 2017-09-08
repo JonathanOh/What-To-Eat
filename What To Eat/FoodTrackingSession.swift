@@ -35,7 +35,7 @@ class FoodTrackingSession {
         var dishesToReturn: [Dish] = []
         var indexTracker: [Int] = []
         while dishesToReturn.count < amountOfDishesToReturn {
-            let randomNumber = Int(arc4random_uniform(UInt32(amountOfDishesToReturn)))
+            let randomNumber = amountOfDishesToReturn.randomNumberWithSelfAsMaximum()
             if !indexTracker.contains(randomNumber) {
                 indexTracker.append(randomNumber)
                 dishesToReturn.append(dishes[randomNumber])
@@ -50,23 +50,11 @@ class FoodTrackingSession {
             return []
         } else {
             let dishes =  eligibleCuisines.map { cuisine -> Dish in
-                let randomNumber: Int = Int(arc4random_uniform(UInt32(Dish.Constants.maxAmountOfDishes)))
+                let randomNumber = Dish.Constants.maxAmountOfDishes.randomNumberWithSelfAsMaximum()
                 return cuisine.topFiveFoods[randomNumber]
             }
             return getRandomDishesFrom(dishes, amountOfDishesToReturn: amountOfDishesToReturn)
         }
-    }
-    
-    func getRoundChoices(_ cuisines: [CuisineChoices]) -> [Dish] {
-        // This is where we input logic to choose 3 cuisines for user to choose from
-        return []
-    }
-    
-    func cuisineDidWin(_ cuisine: Cuisine) {
-        // logic to trigger this cuisine winner
-    }
-    func dishDidWin(_ dish: Dish) {
-        // logic ot trigger this dish winner
     }
     
     func resultOfRound(_ winner: Dish, losers: [Dish]) {
