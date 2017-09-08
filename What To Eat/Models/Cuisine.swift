@@ -12,13 +12,7 @@ class Cuisine: WinTracker {
 
     let cuisineType: CuisineChoices
     let topFiveFoods: [Dish]
-    private var isEligibleCuisine: Bool = true {
-        didSet {
-            if isEligibleCuisine == false {
-                // logic to remove self from eligibility in round choices
-            }
-        }
-    }
+    private var isEligibleCuisine: Bool = true 
     
     init(cuisineType: CuisineChoices, topFiveFoods: [PossibleDishes]) {
         self.cuisineType = cuisineType

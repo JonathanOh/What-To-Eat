@@ -33,7 +33,7 @@ class FoodChoiceVC: UIViewController {
         }
         
         roundResults = RoundResults(roundNumber: currentRound.roundNumber, winningDish: currentRound.choiceOfDishesForUser[0], losingDishes: [currentRound.choiceOfDishesForUser[1], currentRound.choiceOfDishesForUser[2]], eligibleCuisines: currentRound.eligibleCuisines)
-        roundResults?.submit()
+        roundResults?.submitDataAndCleanUpRound()
         currentRound = RoundCreator(lastRoundResults: roundResults)
         
         for cuisine in currentRound.eligibleCuisines {
