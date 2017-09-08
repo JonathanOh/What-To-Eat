@@ -22,6 +22,6 @@ class Cuisine: WinTracker {
     
     init(cuisineType: CuisineChoices, topFiveFoods: [PossibleDishes]) {
         self.cuisineType = cuisineType
-        self.topFiveFoods = topFiveFoods.map { Dish(dishName: $0, cuisine: [cuisineType]) }
+        self.topFiveFoods = topFiveFoods.map { Dish(dishName: $0, cuisine: cuisineType) }
     }
 }

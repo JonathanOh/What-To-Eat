@@ -11,21 +11,21 @@ import Foundation
 //  This class should be responsible for taking in results of the round and updating objects
 class FoodTrackingSession {
     
-    private(set) var eligibleCuisinesForRound: [Cuisine]
+//    private(set) var eligibleCuisinesForRound: [Cuisine]
+//    
+//    init(eligibleCuisinesForRound: [Cuisine]) {
+//        self.eligibleCuisinesForRound = eligibleCuisinesForRound
+//    }
     
-    init(eligibleCuisinesForRound: [Cuisine]) {
-        self.eligibleCuisinesForRound = eligibleCuisinesForRound
-    }
-    
-    private func checkCuisinesToDisqualify(byCuisines: [Cuisine]) -> [Cuisine] {
+    static func checkCuisinesToDisqualify(byCuisines: [Cuisine]) -> [Cuisine] {
         return byCuisines.filter { $0.losingTally <= Rules.Disqualify.maxAllowedCuisineLosses }
     }
+//    
+//    private func updateEligibleCuisines() {
+//        eligibleCuisinesForRound = checkCuisinesToDisqualify(byCuisines: eligibleCuisinesForRound)
+//    }
     
-    private func updateEligibleCuisines() {
-        eligibleCuisinesForRound = checkCuisinesToDisqualify(byCuisines: eligibleCuisinesForRound)
-    }
-    
-    func getRandomDishesFrom(_ dishes: [Dish], amountOfDishesToReturn: Int) -> [Dish] {
+    static func getRandomDishesFrom(_ dishes: [Dish], amountOfDishesToReturn: Int) -> [Dish] {
         if dishes.count > amountOfDishesToReturn { return [] }
         var dishesToReturn: [Dish] = []
         var indexTracker: [Int] = []
@@ -39,7 +39,7 @@ class FoodTrackingSession {
         return dishesToReturn
     }
     
-    func getDishChoiceFromEligibleCuisines(_ cuisines:[Cuisine], amountOfDishesToReturn: Int) -> [Dish] {
+    static func getDishChoiceFromEligibleCuisines(_ cuisines:[Cuisine], amountOfDishesToReturn: Int) -> [Dish] {
         let eligibleCuisines = checkCuisinesToDisqualify(byCuisines: cuisines)
         if eligibleCuisines.count > amountOfDishesToReturn {
             return []

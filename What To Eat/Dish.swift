@@ -11,10 +11,10 @@ import Foundation
 class Dish: WinTracker {
     
     let dishName: PossibleDishes
-    let cuisine: [CuisineChoices]
+    let cuisine: CuisineChoices
     //let images: [String]
     
-    init(dishName: PossibleDishes, cuisine: [CuisineChoices]) {
+    init(dishName: PossibleDishes, cuisine: CuisineChoices) {
         self.dishName = dishName
         self.cuisine = cuisine
     }
