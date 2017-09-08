@@ -18,12 +18,12 @@ class RoundCreator {
     init(lastRoundResults: RoundResults?) {
         if let lastRound = lastRoundResults {
             self.roundNumber = lastRound.roundNumber + 1
-            self.eligibleCuisines = FoodTrackingSession.checkCuisinesToDisqualify(byCuisines: lastRound.eligibleCuisines)
-            self.choiceOfDishesForUser = FoodTrackingSession.getDishChoiceFromEligibleCuisines(self.eligibleCuisines, amountOfDishesToReturn: Rules.dishChoicesPerRound)
+            self.eligibleCuisines = FoodTracker.checkCuisinesToDisqualify(byCuisines: lastRound.eligibleCuisines)
+            self.choiceOfDishesForUser = FoodTracker.getDishChoiceFromEligibleCuisines(self.eligibleCuisines, amountOfDishesToReturn: Rules.dishChoicesPerRound)
         } else {
             self.eligibleCuisines = DefaultValues.cuisines
             self.roundNumber = 1
-            self.choiceOfDishesForUser = FoodTrackingSession.getDishChoiceFromEligibleCuisines(self.eligibleCuisines, amountOfDishesToReturn: Rules.dishChoicesPerRound)
+            self.choiceOfDishesForUser = FoodTracker.getDishChoiceFromEligibleCuisines(self.eligibleCuisines, amountOfDishesToReturn: Rules.dishChoicesPerRound)
         }
     }
     

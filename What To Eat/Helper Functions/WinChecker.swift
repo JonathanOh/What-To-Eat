@@ -18,7 +18,7 @@ class WinChecker {
     // if cuisine gets 3, search cuisine string
     static func getWinnerByCuisine(_ cuisines: [Cuisine]) -> Cuisine? {
         for cuisine in cuisines {
-            if cuisine.winningTally >= Rules.Victory.cuisineWinValue {
+            if cuisine.getTotalCuisineWins(cuisine.topFiveFoods) >= Rules.Victory.cuisineWinValue {
                 return cuisine
             }
         }

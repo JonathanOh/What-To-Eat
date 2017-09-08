@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Cuisine: WinTracker {
+class Cuisine {
 
     let cuisineType: CuisineChoices
     let topFiveFoods: [Dish]
@@ -18,4 +18,13 @@ class Cuisine: WinTracker {
         self.cuisineType = cuisineType
         self.topFiveFoods = topFiveFoods.map { Dish(dishName: $0, cuisine: cuisineType) }
     }
+    
+    func getTotalCuisineLosses(_ dishes: [Dish]) -> Int {
+        return dishes.reduce(0) { $0 + $1.losingTally }
+    }
+    
+    func getTotalCuisineWins(_ dishes: [Dish]) -> Int {
+        return dishes.reduce(0) { $0 + $1.winningTally }
+    }
+    
 }

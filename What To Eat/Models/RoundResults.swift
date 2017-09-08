@@ -22,9 +22,11 @@ class RoundResults {
     
     func submitDataAndCleanUpRound() {
         //Adds tally to winning and losing tallies
-        FoodTrackingSession.resultOfRound(winningDish, losers: losingDishes)
+        FoodTracker.resultOfRound(winningDish, losers: losingDishes)
         
         //Check if any winners?
+        
+        //Disqualify Cuisines?
     }
     
 }

@@ -1,5 +1,5 @@
 //
-//  FoodTrackingSession.swift
+//  FoodTracker.swift
 //  What To Eat
 //
 //  Created by Jonathan Oh on 9/6/17.
@@ -9,10 +9,10 @@
 import Foundation
 
 //  This class should be responsible for taking in results of the round and updating objects
-class FoodTrackingSession {
+class FoodTracker {
     
     static func checkCuisinesToDisqualify(byCuisines: [Cuisine]) -> [Cuisine] {
-        return byCuisines.filter { $0.losingTally <= Rules.Disqualify.maxAllowedCuisineLosses }
+        return byCuisines.filter { $0.getTotalCuisineLosses($0.topFiveFoods) <= Rules.Disqualify.maxAllowedCuisineLosses }
     }
 
     static func getRandomDishesFrom(_ dishes: [Dish], amountOfDishesToReturn: Int) -> [Dish] {

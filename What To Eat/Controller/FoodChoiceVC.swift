@@ -32,7 +32,9 @@ class FoodChoiceVC: UIViewController {
             roundResults = RoundResults(roundNumber: thisRound.roundNumber, winningDish: thisRound.choiceOfDishesForUser[0], losingDishes: [thisRound.choiceOfDishesForUser[1], thisRound.choiceOfDishesForUser[2]], eligibleCuisines: thisRound.eligibleCuisines)
             roundResults!.submitDataAndCleanUpRound()
             currentRound = RoundCreator(lastRoundResults: roundResults)
+            print("Cuisine Count: \(currentRound?.eligibleCuisines.count ?? -1)")
             for cuisine in thisRound.eligibleCuisines {
+                print("Cuisine \(cuisine.cuisineType.rawValue) Loss Tally: \(cuisine.getTotalCuisineLosses(cuisine.topFiveFoods))")
                 for dish in cuisine.topFiveFoods {
                     if dish.winningTally > 0 || dish.losingTally > 0 {
                         print("\(dish.dishName.rawValue): Won:\(dish.winningTally), Lost:\(dish.losingTally)")

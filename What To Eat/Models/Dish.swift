@@ -8,8 +8,10 @@
 
 import Foundation
 
-class Dish: WinTracker {
+class Dish {
     
+    private(set) var winningTally: Int = 0
+    private(set) var losingTally: Int = 0
     let dishName: PossibleDishes
     let cuisine: CuisineChoices
     //let images: [String]
@@ -19,4 +21,16 @@ class Dish: WinTracker {
         self.cuisine = cuisine
     }
     
+    func wonRound() {
+        winningTally += 1
+    }
+    
+    func lostRound() {
+        losingTally += 1
+    }
+    
+    func resetTallies() {
+        winningTally = 0
+        losingTally = 0
+    }
 }
