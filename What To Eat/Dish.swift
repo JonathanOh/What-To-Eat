@@ -10,9 +10,6 @@ import Foundation
 
 class Dish: WinTracker {
     
-    struct Constants {
-        static let maxAmountOfDishes: Int = 5
-    }
     let dishName: PossibleDishes
     let cuisine: [CuisineChoices]
     //let images: [String]

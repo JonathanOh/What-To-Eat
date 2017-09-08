@@ -20,6 +20,10 @@
 		84DED0001F613A3F00236995 /* FoodTrackingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DECFEA1F610C9000236995 /* FoodTrackingSession.swift */; };
 		84DED0011F613BB700236995 /* CuisineChoices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DECFE81F610BC200236995 /* CuisineChoices.swift */; };
 		84DED0021F613BBB00236995 /* Dish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DECFEE1F61149E00236995 /* Dish.swift */; };
+		84DED0041F6247AA00236995 /* RoundResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DED0031F6247AA00236995 /* RoundResults.swift */; };
+		84DED0051F6247AA00236995 /* RoundResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DED0031F6247AA00236995 /* RoundResults.swift */; };
+		84DED0071F624C8200236995 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DED0061F624C8200236995 /* Constants.swift */; };
+		84DED0081F624C8200236995 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DED0061F624C8200236995 /* Constants.swift */; };
 		8B50BE481F61C4BC00202929 /* WinTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BE471F61C4BC00202929 /* WinTracker.swift */; };
 		8B50BE491F61C4BC00202929 /* WinTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BE471F61C4BC00202929 /* WinTracker.swift */; };
 		8B50BE4B1F61C69000202929 /* RoundTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BE4A1F61C69000202929 /* RoundTracker.swift */; };
@@ -54,6 +58,8 @@
 		84DECFF51F6138CE00236995 /* What To EatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "What To EatTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84DECFF71F6138CE00236995 /* FoodTrackingSessionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTrackingSessionTests.swift; sourceTree = "<group>"; };
 		84DECFF91F6138CE00236995 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84DED0031F6247AA00236995 /* RoundResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundResults.swift; sourceTree = "<group>"; };
+		84DED0061F624C8200236995 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8B50BE471F61C4BC00202929 /* WinTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinTracker.swift; sourceTree = "<group>"; };
 		8B50BE4A1F61C69000202929 /* RoundTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundTracker.swift; sourceTree = "<group>"; };
 		8B50BE4D1F62108100202929 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -117,9 +123,11 @@
 				84DECFEE1F61149E00236995 /* Dish.swift */,
 				8B50BE471F61C4BC00202929 /* WinTracker.swift */,
 				8B50BE501F621BCE00202929 /* WinChecker.swift */,
+				84DED0031F6247AA00236995 /* RoundResults.swift */,
 				84DECFEA1F610C9000236995 /* FoodTrackingSession.swift */,
 				8B50BE4D1F62108100202929 /* Extensions.swift */,
 				8B50BE4A1F61C69000202929 /* RoundTracker.swift */,
+				84DED0061F624C8200236995 /* Constants.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -242,6 +250,8 @@
 				8B50BE4E1F62108100202929 /* Extensions.swift in Sources */,
 				8B50BE511F621BCE00202929 /* WinChecker.swift in Sources */,
 				84DECFED1F61120400236995 /* Cuisine.swift in Sources */,
+				84DED0041F6247AA00236995 /* RoundResults.swift in Sources */,
+				84DED0071F624C8200236995 /* Constants.swift in Sources */,
 				8B50BE481F61C4BC00202929 /* WinTracker.swift in Sources */,
 				84DECFD91F6108DF00236995 /* FoodChoiceVC.swift in Sources */,
 				8B50BE4B1F61C69000202929 /* RoundTracker.swift in Sources */,
@@ -256,12 +266,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				84DECFFF1F613A1B00236995 /* Cuisine.swift in Sources */,
+				84DED0051F6247AA00236995 /* RoundResults.swift in Sources */,
 				84DED0021F613BBB00236995 /* Dish.swift in Sources */,
 				84DED0011F613BB700236995 /* CuisineChoices.swift in Sources */,
 				8B50BE4F1F62108100202929 /* Extensions.swift in Sources */,
 				84DED0001F613A3F00236995 /* FoodTrackingSession.swift in Sources */,
 				8B50BE521F621BCE00202929 /* WinChecker.swift in Sources */,
 				8B50BE4C1F61C69000202929 /* RoundTracker.swift in Sources */,
+				84DED0081F624C8200236995 /* Constants.swift in Sources */,
 				84DECFF81F6138CE00236995 /* FoodTrackingSessionTests.swift in Sources */,
 				8B50BE491F61C4BC00202929 /* WinTracker.swift in Sources */,
 			);

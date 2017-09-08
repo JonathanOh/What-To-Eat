@@ -10,11 +10,6 @@ import Foundation
 
 //  This class should be responsible for taking in results of the round and updating objects
 class FoodTrackingSession {
-
-    struct Constants {
-        static let maxAllowedCuisineLosses: Int = 2
-        static let dishChoicesPerRound: Int = 3
-    }
     
     private(set) var eligibleCuisinesForRound: [Cuisine]
     
@@ -23,7 +18,7 @@ class FoodTrackingSession {
     }
     
     private func checkCuisinesToDisqualify(byCuisines: [Cuisine]) -> [Cuisine] {
-        return byCuisines.filter { $0.losingTally <= Constants.maxAllowedCuisineLosses }
+        return byCuisines.filter { $0.losingTally <= Rules.Disqualify.maxAllowedCuisineLosses }
     }
     
     private func updateEligibleCuisines() {
@@ -50,7 +45,7 @@ class FoodTrackingSession {
             return []
         } else {
             let dishes =  eligibleCuisines.map { cuisine -> Dish in
-                let randomNumber = Dish.Constants.maxAmountOfDishes.randomNumberWithSelfAsMaximum()
+                let randomNumber = Rules.maxDishesPerCuisine.randomNumberWithSelfAsMaximum()
                 return cuisine.topFiveFoods[randomNumber]
             }
             return getRandomDishesFrom(dishes, amountOfDishesToReturn: amountOfDishesToReturn)
