@@ -32,6 +32,8 @@
 		8B50BE521F621BCE00202929 /* WinChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BE501F621BCE00202929 /* WinChecker.swift */; };
 		8B50BE541F6332CC00202929 /* Winner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BE531F6332CC00202929 /* Winner.swift */; };
 		8B50BE551F6332CC00202929 /* Winner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BE531F6332CC00202929 /* Winner.swift */; };
+		8B50BE571F6340B800202929 /* WinningVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BE561F6340B800202929 /* WinningVC.swift */; };
+		8B50BE581F6340B800202929 /* WinningVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BE561F6340B800202929 /* WinningVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,7 @@
 		8B50BE4D1F62108100202929 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8B50BE501F621BCE00202929 /* WinChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinChecker.swift; sourceTree = "<group>"; };
 		8B50BE531F6332CC00202929 /* Winner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Winner.swift; sourceTree = "<group>"; };
+		8B50BE561F6340B800202929 /* WinningVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WinningVC.swift; path = ../Models/WinningVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +164,7 @@
 		84DED00C1F628FD100236995 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				8B50BE561F6340B800202929 /* WinningVC.swift */,
 				84DECFD81F6108DF00236995 /* FoodChoiceVC.swift */,
 			);
 			path = Controller;
@@ -280,6 +284,7 @@
 				8B50BE4B1F61C69000202929 /* RoundCreator.swift in Sources */,
 				84DECFEF1F61149E00236995 /* Dish.swift in Sources */,
 				84DECFD71F6108DF00236995 /* AppDelegate.swift in Sources */,
+				8B50BE571F6340B800202929 /* WinningVC.swift in Sources */,
 				8B50BE541F6332CC00202929 /* Winner.swift in Sources */,
 				84DECFE91F610BC200236995 /* CuisineChoices.swift in Sources */,
 			);
@@ -290,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84DECFFF1F613A1B00236995 /* Cuisine.swift in Sources */,
+				8B50BE581F6340B800202929 /* WinningVC.swift in Sources */,
 				84DED0051F6247AA00236995 /* RoundResults.swift in Sources */,
 				84DED0021F613BBB00236995 /* Dish.swift in Sources */,
 				84DED0011F613BB700236995 /* CuisineChoices.swift in Sources */,
