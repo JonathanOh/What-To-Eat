@@ -31,14 +31,14 @@ class WinChecker {
         return nil
     }
     
-    static func determineWinnerFrom(currentRound: RoundCreator, roundResults: RoundResults) -> [Winner]? {
+    static func determineWinnerFrom(roundResults: RoundResults) -> [Winner]? {
         if let dishWinner = getWinnerByDish(roundResults.winningDish) {
             return [Winner(dish: dishWinner)]
         }
-        if let cuisineWinner = getWinnerByCuisine(currentRound.eligibleCuisines) {
+        if let cuisineWinner = getWinnerByCuisine(roundResults.eligibleCuisines) {
             return [Winner(cuisine: cuisineWinner)]
         }
-        if let endOfRoundWinner = getWinnerByMaxRound(currentRound.eligibleCuisines, round: roundResults.roundNumber) {
+        if let endOfRoundWinner = getWinnerByMaxRound(roundResults.eligibleCuisines, round: roundResults.roundNumber) {
             return endOfRoundWinner.map { Winner(cuisine: $0) }
         }
         return nil

@@ -18,7 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         let foodChoiceViewController = FoodChoiceVC()
-        window?.rootViewController = foodChoiceViewController
+        let navigationController = UINavigationController(rootViewController: foodChoiceViewController)
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         
         return true

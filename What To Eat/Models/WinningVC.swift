@@ -23,7 +23,7 @@ class WinningVC: UIViewController {
         testLabel.backgroundColor = .white
         view.addSubview(testLabel)
         
-        testLabel.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        testLabel.widthAnchor.constraint(equalToConstant: 300).isActive = true
         testLabel.heightAnchor.constraint(equalToConstant: 40).isActive = true
         testLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         testLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true

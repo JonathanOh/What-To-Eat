@@ -19,7 +19,8 @@ class FoodChoiceVC: UIViewController {
         currentRound = RoundCreator(lastRoundResults: nil)
         view.backgroundColor = .red
         
-        roundSimulation(15)
+
+        roundSimulation(16)
     }
 
     func roundSimulation(_ repeatx: Int = 1) {
@@ -30,7 +31,12 @@ class FoodChoiceVC: UIViewController {
                 print("choice of dishes for user: \(dish.dishName.rawValue)")
             }
             roundResults = RoundResults(roundNumber: thisRound.roundNumber, winningDish: thisRound.choiceOfDishesForUser[0], losingDishes: [thisRound.choiceOfDishesForUser[1], thisRound.choiceOfDishesForUser[2]], eligibleCuisines: thisRound.eligibleCuisines)
-            roundResults!.submitDataAndCleanUpRound()
+            if let winner = roundResults!.submitDataAndCleanUpRound() {
+                let winnerVC = WinningVC()
+                winnerVC.searchString = winner[0].searchString
+                navigationController?.pushViewController(winnerVC, animated: true)
+                return
+            }
             currentRound = RoundCreator(lastRoundResults: roundResults)
             print("Cuisine Count: \(currentRound?.eligibleCuisines.count ?? -1)")
             for cuisine in thisRound.eligibleCuisines {

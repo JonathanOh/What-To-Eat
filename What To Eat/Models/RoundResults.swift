@@ -20,12 +20,15 @@ class RoundResults {
         self.eligibleCuisines = eligibleCuisines
     }
     
-    func submitDataAndCleanUpRound() {
+    func submitDataAndCleanUpRound() -> [Winner]? {
         //Adds tally to winning and losing tallies
         FoodTracker.resultOfRound(winningDish, losers: losingDishes)
         
         //Check if any winners?
-        
+        if let winner = WinChecker.determineWinnerFrom(roundResults: self) {
+            return winner
+        }
+        return nil
         //Disqualify Cuisines?
     }
     
