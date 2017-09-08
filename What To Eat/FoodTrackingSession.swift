@@ -16,7 +16,7 @@ class FoodTrackingSession {
         static let dishChoicesPerRound: Int = 3
     }
     
-    private var eligibleCuisinesForRound: [Cuisine]
+    private(set) var eligibleCuisinesForRound: [Cuisine]
     
     init(eligibleCuisinesForRound: [Cuisine]) {
         self.eligibleCuisinesForRound = eligibleCuisinesForRound
@@ -30,15 +30,30 @@ class FoodTrackingSession {
         eligibleCuisinesForRound = checkCuisinesToDisqualify(byCuisines: eligibleCuisinesForRound)
     }
     
+    func getRandomDishesFrom(_ dishes: [Dish], amountOfDishesToReturn: Int) -> [Dish] {
+        if dishes.count > amountOfDishesToReturn { return [] }
+        var dishesToReturn: [Dish] = []
+        var indexTracker: [Int] = []
+        while dishesToReturn.count < amountOfDishesToReturn {
+            let randomNumber = Int(arc4random_uniform(UInt32(amountOfDishesToReturn)))
+            if !indexTracker.contains(randomNumber) {
+                indexTracker.append(randomNumber)
+                dishesToReturn.append(dishes[randomNumber])
+            }
+        }
+        return dishesToReturn
+    }
+    
     func getDishChoiceFromEligibleCuisines(_ cuisines:[Cuisine], amountOfDishesToReturn: Int) -> [Dish] {
         let eligibleCuisines = checkCuisinesToDisqualify(byCuisines: cuisines)
         if eligibleCuisines.count > amountOfDishesToReturn {
             return []
         } else {
-            return eligibleCuisines.map { cuisine -> Dish in
+            let dishes =  eligibleCuisines.map { cuisine -> Dish in
                 let randomNumber: Int = Int(arc4random_uniform(UInt32(Dish.Constants.maxAmountOfDishes)))
                 return cuisine.topFiveFoods[randomNumber]
             }
+            return getRandomDishesFrom(dishes, amountOfDishesToReturn: amountOfDishesToReturn)
         }
     }
     
