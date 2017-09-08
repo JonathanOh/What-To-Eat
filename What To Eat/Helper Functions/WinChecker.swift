@@ -10,7 +10,7 @@ import Foundation
 
 class WinChecker {
     
-    // if dish gets +2, search dish string
+    // if dish gets +2, search dish string, should be checked as user selects a dish
     static func getWinnerByDish(_ dish: Dish) -> Dish? {
         return dish.winningTally >= Rules.Victory.dishWinValue ? dish : nil
     }
@@ -28,6 +28,19 @@ class WinChecker {
     // if round 15, random dish out of all the highest point dishes
     static func getWinnerByMaxRound(_ cuisines: [Cuisine], round: Int) -> [Cuisine]? {
         if round <= Rules.maximumNumberOfRounds { return nil }
+        return nil
+    }
+    
+    static func determineWinnerFrom(currentRound: RoundCreator, roundResults: RoundResults) -> [Winner]? {
+        if let dishWinner = getWinnerByDish(roundResults.winningDish) {
+            return [Winner(dish: dishWinner)]
+        }
+        if let cuisineWinner = getWinnerByCuisine(currentRound.eligibleCuisines) {
+            return [Winner(cuisine: cuisineWinner)]
+        }
+        if let endOfRoundWinner = getWinnerByMaxRound(currentRound.eligibleCuisines, round: roundResults.roundNumber) {
+            return endOfRoundWinner.map { Winner(cuisine: $0) }
+        }
         return nil
     }
 }

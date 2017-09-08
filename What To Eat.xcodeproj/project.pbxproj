@@ -30,6 +30,8 @@
 		8B50BE4F1F62108100202929 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BE4D1F62108100202929 /* Extensions.swift */; };
 		8B50BE511F621BCE00202929 /* WinChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BE501F621BCE00202929 /* WinChecker.swift */; };
 		8B50BE521F621BCE00202929 /* WinChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BE501F621BCE00202929 /* WinChecker.swift */; };
+		8B50BE541F6332CC00202929 /* Winner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BE531F6332CC00202929 /* Winner.swift */; };
+		8B50BE551F6332CC00202929 /* Winner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BE531F6332CC00202929 /* Winner.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,7 @@
 		8B50BE4A1F61C69000202929 /* RoundCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundCreator.swift; sourceTree = "<group>"; };
 		8B50BE4D1F62108100202929 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8B50BE501F621BCE00202929 /* WinChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinChecker.swift; sourceTree = "<group>"; };
+		8B50BE531F6332CC00202929 /* Winner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Winner.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				84DECFEC1F61120400236995 /* Cuisine.swift */,
+				8B50BE531F6332CC00202929 /* Winner.swift */,
 				84DECFEE1F61149E00236995 /* Dish.swift */,
 				84DED0031F6247AA00236995 /* RoundResults.swift */,
 				8B50BE4A1F61C69000202929 /* RoundCreator.swift */,
@@ -276,6 +280,7 @@
 				8B50BE4B1F61C69000202929 /* RoundCreator.swift in Sources */,
 				84DECFEF1F61149E00236995 /* Dish.swift in Sources */,
 				84DECFD71F6108DF00236995 /* AppDelegate.swift in Sources */,
+				8B50BE541F6332CC00202929 /* Winner.swift in Sources */,
 				84DECFE91F610BC200236995 /* CuisineChoices.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -290,6 +295,7 @@
 				84DED0011F613BB700236995 /* CuisineChoices.swift in Sources */,
 				8B50BE4F1F62108100202929 /* Extensions.swift in Sources */,
 				84DED0001F613A3F00236995 /* FoodTracker.swift in Sources */,
+				8B50BE551F6332CC00202929 /* Winner.swift in Sources */,
 				8B50BE521F621BCE00202929 /* WinChecker.swift in Sources */,
 				8B50BE4C1F61C69000202929 /* RoundCreator.swift in Sources */,
 				84DED0081F624C8200236995 /* Constants.swift in Sources */,
