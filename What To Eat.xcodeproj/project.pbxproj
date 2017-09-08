@@ -106,11 +106,10 @@
 			isa = PBXGroup;
 			children = (
 				84DECFD61F6108DF00236995 /* AppDelegate.swift */,
-				84DECFD81F6108DF00236995 /* FoodChoiceVC.swift */,
+				84DED00C1F628FD100236995 /* Controller */,
+				84DED00A1F628F7400236995 /* Helper Functions */,
 				84DECFF01F61331400236995 /* Models */,
-				84DECFE81F610BC200236995 /* CuisineChoices.swift */,
-				8B50BE4D1F62108100202929 /* Extensions.swift */,
-				84DED0061F624C8200236995 /* Constants.swift */,
+				84DED00B1F628FAC00236995 /* Constants */,
 				84DECFDD1F6108DF00236995 /* Assets.xcassets */,
 				84DECFDF1F6108DF00236995 /* LaunchScreen.storyboard */,
 				84DECFE21F6108DF00236995 /* Info.plist */,
@@ -124,12 +123,10 @@
 				84DECFEC1F61120400236995 /* Cuisine.swift */,
 				84DECFEE1F61149E00236995 /* Dish.swift */,
 				8B50BE471F61C4BC00202929 /* WinTracker.swift */,
-				8B50BE501F621BCE00202929 /* WinChecker.swift */,
 				84DED0031F6247AA00236995 /* RoundResults.swift */,
-				84DECFEA1F610C9000236995 /* FoodTrackingSession.swift */,
 				8B50BE4A1F61C69000202929 /* RoundCreator.swift */,
 			);
-			name = Models;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		84DECFF61F6138CE00236995 /* WhatToEatTests */ = {
@@ -140,6 +137,33 @@
 			);
 			name = WhatToEatTests;
 			path = "What To EatTests";
+			sourceTree = "<group>";
+		};
+		84DED00A1F628F7400236995 /* Helper Functions */ = {
+			isa = PBXGroup;
+			children = (
+				8B50BE4D1F62108100202929 /* Extensions.swift */,
+				8B50BE501F621BCE00202929 /* WinChecker.swift */,
+				84DECFEA1F610C9000236995 /* FoodTrackingSession.swift */,
+			);
+			path = "Helper Functions";
+			sourceTree = "<group>";
+		};
+		84DED00B1F628FAC00236995 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				84DECFE81F610BC200236995 /* CuisineChoices.swift */,
+				84DED0061F624C8200236995 /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		84DED00C1F628FD100236995 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				84DECFD81F6108DF00236995 /* FoodChoiceVC.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
