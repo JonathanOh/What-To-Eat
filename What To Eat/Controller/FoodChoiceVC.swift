@@ -12,15 +12,48 @@ class FoodChoiceVC: UIViewController {
 
     private var roundResults: RoundResults?
     private var currentRound: RoundCreator?
+    private var heightOfNavAndStatusBar: CGFloat {
+        let statusBarHeight = UIApplication.shared.statusBarFrame.height
+        let navigationBarHeight = navigationController?.navigationBar.frame.height ?? 64.0
+        return statusBarHeight + navigationBarHeight
+    }
+    private var valueToSpaceCards: CGFloat {
+        let visibleHeight: CGFloat = view.frame.height - heightOfNavAndStatusBar
+        let heightOfAllCards: CGFloat = (view.frame.height/CGFloat(Rules.dishChoicesPerRound + 1)) * CGFloat(Rules.dishChoicesPerRound)
+        let emptySpaceAvailable: CGFloat = visibleHeight - heightOfAllCards
+        return emptySpaceAvailable / (CGFloat(Rules.dishChoicesPerRound) + 1.0)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
         // Do any additional setup after loading the view, typically from a nib.
         currentRound = RoundCreator(lastRoundResults: nil)
-        view.backgroundColor = .red
-        
+        guard let round = currentRound else { return }
+        setupCardChoices(with: round)
 
-        roundSimulation(16)
+    }
+    
+    func setupCardChoices(with round: RoundCreator) {
+        var cardChoices = [DishCardView]()
+        for x in 1...Rules.dishChoicesPerRound {
+            let choiceTitle = round.choiceOfDishesForUser[x-1].dishName.rawValue
+            let card = DishCardView(dishName: choiceTitle, target: self, action: #selector(didPressCuisineButton))
+            cardChoices.append(card)
+            view.addSubview(card)
+            card.widthAnchor.constraint(equalToConstant: view.bounds.width).isActive = true
+            let heightOfCard: CGFloat = DishCardView.heightOfCardWith(screenHeight: view.frame.height)
+            card.heightAnchor.constraint(equalToConstant: heightOfCard).isActive = true
+            card.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+            // Logic to space all cards evenly
+            let firstCardAnchor = (x == 1 ? view.topAnchor : cardChoices[x-2].bottomAnchor)
+            let otherCardAnchors = (x == 1 ? valueToSpaceCards + heightOfNavAndStatusBar : valueToSpaceCards)
+            card.topAnchor.constraint(equalTo: firstCardAnchor, constant: otherCardAnchors).isActive = true
+        }
+    }
+    
+    func didPressCuisineButton(sender: DishCardView) {
+        print("didPressCuisineButton \(sender.dishName)")
     }
 
     func roundSimulation(_ repeatx: Int = 1) {

@@ -34,6 +34,8 @@
 		8B50BE551F6332CC00202929 /* Winner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BE531F6332CC00202929 /* Winner.swift */; };
 		8B50BE571F6340B800202929 /* WinningVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BE561F6340B800202929 /* WinningVC.swift */; };
 		8B50BE581F6340B800202929 /* WinningVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BE561F6340B800202929 /* WinningVC.swift */; };
+		8B50BE5B1F6350D900202929 /* DishCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BE5A1F6350D900202929 /* DishCardView.swift */; };
+		8B50BE5C1F6350D900202929 /* DishCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BE5A1F6350D900202929 /* DishCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,7 @@
 		8B50BE501F621BCE00202929 /* WinChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinChecker.swift; sourceTree = "<group>"; };
 		8B50BE531F6332CC00202929 /* Winner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Winner.swift; sourceTree = "<group>"; };
 		8B50BE561F6340B800202929 /* WinningVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WinningVC.swift; path = ../Models/WinningVC.swift; sourceTree = "<group>"; };
+		8B50BE5A1F6350D900202929 /* DishCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,9 +112,10 @@
 			isa = PBXGroup;
 			children = (
 				84DECFD61F6108DF00236995 /* AppDelegate.swift */,
+				84DECFF01F61331400236995 /* Models */,
+				8B50BE591F63508900202929 /* View */,
 				84DED00C1F628FD100236995 /* Controller */,
 				84DED00A1F628F7400236995 /* Helper Functions */,
-				84DECFF01F61331400236995 /* Models */,
 				84DED00B1F628FAC00236995 /* Constants */,
 				84DECFDD1F6108DF00236995 /* Assets.xcassets */,
 				84DECFDF1F6108DF00236995 /* LaunchScreen.storyboard */,
@@ -167,6 +171,15 @@
 				8B50BE561F6340B800202929 /* WinningVC.swift */,
 				84DECFD81F6108DF00236995 /* FoodChoiceVC.swift */,
 			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8B50BE591F63508900202929 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8B50BE5A1F6350D900202929 /* DishCardView.swift */,
+			);
+			name = View;
 			path = Controller;
 			sourceTree = "<group>";
 		};
@@ -276,6 +289,7 @@
 			files = (
 				84DECFEB1F610C9000236995 /* FoodTracker.swift in Sources */,
 				8B50BE4E1F62108100202929 /* Extensions.swift in Sources */,
+				8B50BE5B1F6350D900202929 /* DishCardView.swift in Sources */,
 				8B50BE511F621BCE00202929 /* WinChecker.swift in Sources */,
 				84DECFED1F61120400236995 /* Cuisine.swift in Sources */,
 				84DED0041F6247AA00236995 /* RoundResults.swift in Sources */,
@@ -297,6 +311,7 @@
 				84DECFFF1F613A1B00236995 /* Cuisine.swift in Sources */,
 				8B50BE581F6340B800202929 /* WinningVC.swift in Sources */,
 				84DED0051F6247AA00236995 /* RoundResults.swift in Sources */,
+				8B50BE5C1F6350D900202929 /* DishCardView.swift in Sources */,
 				84DED0021F613BBB00236995 /* Dish.swift in Sources */,
 				84DED0011F613BB700236995 /* CuisineChoices.swift in Sources */,
 				8B50BE4F1F62108100202929 /* Extensions.swift in Sources */,
