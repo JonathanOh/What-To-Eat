@@ -8,8 +8,13 @@
 
 import UIKit
 
+protocol TappedResetRoundDelegate {
+    func didTapResetRound()
+}
+
 class WinningVC: UIViewController {
     
+    var delegate: TappedResetRoundDelegate?
     let testLabel = UILabel()
     var searchString: String?
     
@@ -27,6 +32,14 @@ class WinningVC: UIViewController {
         testLabel.heightAnchor.constraint(equalToConstant: 40).isActive = true
         testLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         testLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+    
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Reset Round", style: .plain, target: self, action: #selector(tappedResetButton))
+        //navigationController?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Reset Round", style: .plain, target: self, action: #selector(tappedResetButton))
+    }
+    
+    func tappedResetButton() {
+        navigationController?.popViewController(animated: true)
+        delegate?.didTapResetRound()
     }
     
 }

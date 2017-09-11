@@ -10,7 +10,9 @@ import UIKit
 
 class FoodChoiceVC: UIViewController {
     
-    let animationOffset: CGFloat = 1000.0
+    private var animationOffset: CGFloat {
+        return self.view.frame.height
+    }
 
     private var roundResults: RoundResults?
     private var currentRound: RoundCreator?
@@ -32,20 +34,24 @@ class FoodChoiceVC: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         // Do any additional setup after loading the view, typically from a nib.
+        resetRound()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+    }
+    
+    func resetRound() {
+        _ = DefaultValues.cuisines.map { $0.topFiveFoods.map { $0.resetTallies() } }
+        roundResults = nil
+        currentRound = nil
+        removeFoodCardsFromViewAndArray()
+        topConstraintOfCards.removeAll()
         currentRound = RoundCreator(lastRoundResults: nil)
         guard let round = currentRound else { return }
         setupCardChoices(with: round)
     }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        for constraint in topConstraintOfCards {
-            constraint.constant = constraint.constant - animationOffset
-        }
-        UIView.animate(withDuration: 1.0) { [weak self] in
-            self?.view.layoutIfNeeded()
-        }
-    }
-    
+
     func setupCardChoices(with round: RoundCreator) {
         removeFoodCardsFromViewAndArray()
         topConstraintOfCards.removeAll()
@@ -64,6 +70,17 @@ class FoodChoiceVC: UIViewController {
             topAnchorConstraint.isActive = true
             topConstraintOfCards.append(topAnchorConstraint)
         }
+        animateCardChoicesIn()
+    }
+    
+    func animateCardChoicesIn() {
+        view.layoutIfNeeded()
+        for constraint in topConstraintOfCards {
+            constraint.constant = constraint.constant - animationOffset
+        }
+        UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveLinear, animations: { [weak self] in
+            self?.view.layoutIfNeeded()
+            }, completion: nil)
     }
     
     func removeFoodCardsFromViewAndArray() {
@@ -100,6 +117,7 @@ class FoodChoiceVC: UIViewController {
     func isThereAWinner() -> Bool {
         if let winnerExists = roundResults?.submitDataAndCleanUpRound() {
             let winnerVC = WinningVC()
+            winnerVC.delegate = self
             winnerVC.searchString = winnerExists[0].searchString
             navigationController?.pushViewController(winnerVC, animated: true)
             return true
@@ -138,7 +156,11 @@ class FoodChoiceVC: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+}
 
-
+extension FoodChoiceVC: TappedResetRoundDelegate {
+    func didTapResetRound() {
+        resetRound()
+    }
 }
 
