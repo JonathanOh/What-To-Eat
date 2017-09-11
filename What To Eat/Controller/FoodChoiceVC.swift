@@ -9,9 +9,13 @@
 import UIKit
 
 class FoodChoiceVC: UIViewController {
+    
+    let animationOffset: CGFloat = 1000.0
 
     private var roundResults: RoundResults?
     private var currentRound: RoundCreator?
+    private var cardChoiceViews = [DishCardView]()
+    private var topConstraintOfCards = [NSLayoutConstraint]()
     private var heightOfNavAndStatusBar: CGFloat {
         let statusBarHeight = UIApplication.shared.statusBarFrame.height
         let navigationBarHeight = navigationController?.navigationBar.frame.height ?? 64.0
@@ -31,24 +35,44 @@ class FoodChoiceVC: UIViewController {
         currentRound = RoundCreator(lastRoundResults: nil)
         guard let round = currentRound else { return }
         setupCardChoices(with: round)
-
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        for constraint in topConstraintOfCards {
+            constraint.constant = constraint.constant - animationOffset
+        }
+        UIView.animate(withDuration: 1.0) { [weak self] in
+            self?.view.layoutIfNeeded()
+        }
     }
     
     func setupCardChoices(with round: RoundCreator) {
-        var cardChoices = [DishCardView]()
+        removeFoodCardsFromViewAndArray()
+        topConstraintOfCards.removeAll()
         for x in 0..<Rules.dishChoicesPerRound {
             let card = DishCardView(dish: round.choiceOfDishesForUser[x], target: self, action: #selector(didPressCuisineButton(sender:)))
-            cardChoices.append(card)
+            cardChoiceViews.append(card)
             view.addSubview(card)
             card.widthAnchor.constraint(equalToConstant: view.bounds.width).isActive = true
             let heightOfCard: CGFloat = DishCardView.heightOfCardWith(screenHeight: view.frame.height)
             card.heightAnchor.constraint(equalToConstant: heightOfCard).isActive = true
             card.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
             // Top card will constrain according to status bar + nav bar + fixed spacing.  Next cards will constrain to fixed spacing to cards shown above it.
-            let bottomAnchorOfViewAbove = (x == 0 ? view.topAnchor : cardChoices[x-1].bottomAnchor)
+            let bottomAnchorOfViewAbove = (x == 0 ? view.topAnchor : cardChoiceViews[x-1].bottomAnchor)
             let topSpacing = (x == 0 ? valueToSpaceCards + heightOfNavAndStatusBar : valueToSpaceCards)
-            card.topAnchor.constraint(equalTo: bottomAnchorOfViewAbove, constant: topSpacing).isActive = true
+            let topAnchorConstraint = card.topAnchor.constraint(equalTo: bottomAnchorOfViewAbove, constant: topSpacing + animationOffset)
+            topAnchorConstraint.isActive = true
+            topConstraintOfCards.append(topAnchorConstraint)
         }
+    }
+    
+    func removeFoodCardsFromViewAndArray() {
+        if !cardChoiceViews.isEmpty {
+            for viewIndex in stride(from: cardChoiceViews.count-1, through: 0, by: -1) {
+                cardChoiceViews[viewIndex].removeFromSuperview()
+            }
+        }
+        cardChoiceViews.removeAll()
     }
     
     func didPressCuisineButton(sender: DishCardView) {
@@ -59,8 +83,9 @@ class FoodChoiceVC: UIViewController {
         }
         
         roundResults = submitRoundResults(thisRound, winningDish: sender.dish)
-        if !checkIfDishWins() {
+        if !isThereAWinner() {
             currentRound = RoundCreator(lastRoundResults: roundResults)
+            setupCardChoices(with: currentRound!)
         }
     }
     
@@ -70,7 +95,9 @@ class FoodChoiceVC: UIViewController {
                             losingDishes: currentRound.choiceOfDishesForUser.filter { $0.dishName != winningDish.dishName },
                             eligibleCuisines: currentRound.eligibleCuisines)
     }
-    func checkIfDishWins() -> Bool {
+    
+    //TODO: Pass in roundResults?.submitDataAndClean... add logic to handle an array of winner maybe?
+    func isThereAWinner() -> Bool {
         if let winnerExists = roundResults?.submitDataAndCleanUpRound() {
             let winnerVC = WinningVC()
             winnerVC.searchString = winnerExists[0].searchString
