@@ -36,9 +36,8 @@ class FoodChoiceVC: UIViewController {
     
     func setupCardChoices(with round: RoundCreator) {
         var cardChoices = [DishCardView]()
-        for x in 1...Rules.dishChoicesPerRound {
-            let choiceTitle = round.choiceOfDishesForUser[x-1].dishName.rawValue
-            let card = DishCardView(dishName: choiceTitle, target: self, action: #selector(didPressCuisineButton))
+        for x in 0..<Rules.dishChoicesPerRound {
+            let card = DishCardView(dish: round.choiceOfDishesForUser[x], target: self, action: #selector(didPressCuisineButton(sender:)))
             cardChoices.append(card)
             view.addSubview(card)
             card.widthAnchor.constraint(equalToConstant: view.bounds.width).isActive = true
@@ -46,14 +45,14 @@ class FoodChoiceVC: UIViewController {
             card.heightAnchor.constraint(equalToConstant: heightOfCard).isActive = true
             card.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
             // Logic to space all cards evenly
-            let firstCardAnchor = (x == 1 ? view.topAnchor : cardChoices[x-2].bottomAnchor)
-            let otherCardAnchors = (x == 1 ? valueToSpaceCards + heightOfNavAndStatusBar : valueToSpaceCards)
-            card.topAnchor.constraint(equalTo: firstCardAnchor, constant: otherCardAnchors).isActive = true
+            let bottomAnchorOfViewAbove = (x == 0 ? view.topAnchor : cardChoices[x-1].bottomAnchor)
+            let topSpacing = (x == 0 ? valueToSpaceCards + heightOfNavAndStatusBar : valueToSpaceCards)
+            card.topAnchor.constraint(equalTo: bottomAnchorOfViewAbove, constant: topSpacing).isActive = true
         }
     }
     
     func didPressCuisineButton(sender: DishCardView) {
-        print("didPressCuisineButton \(sender.dishName)")
+        print("didPressCuisineButton \(sender.dish.dishName.rawValue)")
     }
 
     func roundSimulation(_ repeatx: Int = 1) {

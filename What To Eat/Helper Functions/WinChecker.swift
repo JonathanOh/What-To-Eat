@@ -8,6 +8,7 @@
 
 import Foundation
 
+// If nil is returned, there is no winning dish/cuisine just yet.  Rounds go on.
 class WinChecker {
     
     // if dish gets +2, search dish string, should be checked as user selects a dish

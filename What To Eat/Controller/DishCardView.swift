@@ -11,16 +11,16 @@ import UIKit
 class DishCardView: UIButton {
     
     let testLabel = UILabel()
-    let dishName: String
+    let dish: Dish
     
-    init(dishName: String, target: Any?, action: Selector) {
-        self.dishName = dishName
+    init(dish: Dish, target: Any?, action: Selector) {
+        self.dish = dish
         super.init(frame: .zero)
         self.translatesAutoresizingMaskIntoConstraints = false
         self.addTarget(target, action: action, for: .touchUpInside)
         
         backgroundColor = .gray
-        testLabel.text = "\(self.dishName)"
+        testLabel.text = "\(self.dish.dishName.rawValue)"
         testLabel.translatesAutoresizingMaskIntoConstraints = false
         testLabel.textAlignment = .center
         testLabel.backgroundColor = .blue
