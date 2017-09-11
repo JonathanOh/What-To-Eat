@@ -44,7 +44,7 @@ class FoodChoiceVC: UIViewController {
             let heightOfCard: CGFloat = DishCardView.heightOfCardWith(screenHeight: view.frame.height)
             card.heightAnchor.constraint(equalToConstant: heightOfCard).isActive = true
             card.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-            // Logic to space all cards evenly
+            // Top card will constrain according to status bar + nav bar + fixed spacing.  Next cards will constrain to fixed spacing to cards shown above it.
             let bottomAnchorOfViewAbove = (x == 0 ? view.topAnchor : cardChoices[x-1].bottomAnchor)
             let topSpacing = (x == 0 ? valueToSpaceCards + heightOfNavAndStatusBar : valueToSpaceCards)
             card.topAnchor.constraint(equalTo: bottomAnchorOfViewAbove, constant: topSpacing).isActive = true
@@ -53,6 +53,31 @@ class FoodChoiceVC: UIViewController {
     
     func didPressCuisineButton(sender: DishCardView) {
         print("didPressCuisineButton \(sender.dish.dishName.rawValue)")
+        guard let thisRound = currentRound else {
+            print("We do not have a valid round didPressCuisineButton")
+            return
+        }
+        
+        roundResults = submitRoundResults(thisRound, winningDish: sender.dish)
+        if !checkIfDishWins() {
+            currentRound = RoundCreator(lastRoundResults: roundResults)
+        }
+    }
+    
+    func submitRoundResults(_ currentRound: RoundCreator, winningDish: Dish) -> RoundResults {
+        return RoundResults(roundNumber: currentRound.roundNumber,
+                            winningDish: winningDish,
+                            losingDishes: currentRound.choiceOfDishesForUser.filter { $0.dishName != winningDish.dishName },
+                            eligibleCuisines: currentRound.eligibleCuisines)
+    }
+    func checkIfDishWins() -> Bool {
+        if let winnerExists = roundResults?.submitDataAndCleanUpRound() {
+            let winnerVC = WinningVC()
+            winnerVC.searchString = winnerExists[0].searchString
+            navigationController?.pushViewController(winnerVC, animated: true)
+            return true
+        }
+        return false
     }
 
     func roundSimulation(_ repeatx: Int = 1) {

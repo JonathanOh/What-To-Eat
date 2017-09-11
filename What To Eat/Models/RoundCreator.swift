@@ -15,7 +15,7 @@ class RoundCreator {
     let choiceOfDishesForUser: [Dish]
     let roundNumber: Int
     
-    init(lastRoundResults: RoundResults?) {
+    init?(lastRoundResults: RoundResults?) {
         if let lastRound = lastRoundResults {
             self.roundNumber = lastRound.roundNumber + 1
             self.eligibleCuisines = FoodTracker.checkCuisinesToDisqualify(byCuisines: lastRound.eligibleCuisines)
