@@ -26,6 +26,8 @@
 		84DED0081F624C8200236995 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DED0061F624C8200236995 /* Constants.swift */; };
 		84DED00E1F67912600236995 /* DishCardViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DED00D1F67912600236995 /* DishCardViewManager.swift */; };
 		84DED00F1F67912600236995 /* DishCardViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DED00D1F67912600236995 /* DishCardViewManager.swift */; };
+		84DED0121F67D2A800236995 /* HTTPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DED0111F67D2A800236995 /* HTTPManager.swift */; };
+		84DED0141F67D2BF00236995 /* RestaurantSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DED0131F67D2BF00236995 /* RestaurantSearchRequest.swift */; };
 		8B50BE4B1F61C69000202929 /* RoundCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BE4A1F61C69000202929 /* RoundCreator.swift */; };
 		8B50BE4C1F61C69000202929 /* RoundCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BE4A1F61C69000202929 /* RoundCreator.swift */; };
 		8B50BE4E1F62108100202929 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BE4D1F62108100202929 /* Extensions.swift */; };
@@ -67,6 +69,8 @@
 		84DED0031F6247AA00236995 /* RoundResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundResults.swift; sourceTree = "<group>"; };
 		84DED0061F624C8200236995 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		84DED00D1F67912600236995 /* DishCardViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishCardViewManager.swift; sourceTree = "<group>"; };
+		84DED0111F67D2A800236995 /* HTTPManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPManager.swift; sourceTree = "<group>"; };
+		84DED0131F67D2BF00236995 /* RestaurantSearchRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantSearchRequest.swift; sourceTree = "<group>"; };
 		8B50BE4A1F61C69000202929 /* RoundCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundCreator.swift; sourceTree = "<group>"; };
 		8B50BE4D1F62108100202929 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8B50BE501F621BCE00202929 /* WinChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinChecker.swift; sourceTree = "<group>"; };
@@ -119,6 +123,7 @@
 				8B50BE591F63508900202929 /* View */,
 				84DED00C1F628FD100236995 /* Controller */,
 				84DED00A1F628F7400236995 /* Helper Functions */,
+				84DED0101F67D24000236995 /* HTTP */,
 				84DED00B1F628FAC00236995 /* Constants */,
 				84DECFDD1F6108DF00236995 /* Assets.xcassets */,
 				84DECFDF1F6108DF00236995 /* LaunchScreen.storyboard */,
@@ -176,6 +181,23 @@
 				84DECFD81F6108DF00236995 /* FoodChoiceVC.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		84DED0101F67D24000236995 /* HTTP */ = {
+			isa = PBXGroup;
+			children = (
+				84DED0151F67D2DA00236995 /* Requests */,
+				84DED0111F67D2A800236995 /* HTTPManager.swift */,
+			);
+			path = HTTP;
+			sourceTree = "<group>";
+		};
+		84DED0151F67D2DA00236995 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				84DED0131F67D2BF00236995 /* RestaurantSearchRequest.swift */,
+			);
+			path = Requests;
 			sourceTree = "<group>";
 		};
 		8B50BE591F63508900202929 /* View */ = {
@@ -297,11 +319,13 @@
 				8B50BE511F621BCE00202929 /* WinChecker.swift in Sources */,
 				84DECFED1F61120400236995 /* Cuisine.swift in Sources */,
 				84DED0041F6247AA00236995 /* RoundResults.swift in Sources */,
+				84DED0121F67D2A800236995 /* HTTPManager.swift in Sources */,
 				84DED0071F624C8200236995 /* Constants.swift in Sources */,
 				84DECFD91F6108DF00236995 /* FoodChoiceVC.swift in Sources */,
 				8B50BE4B1F61C69000202929 /* RoundCreator.swift in Sources */,
 				84DECFEF1F61149E00236995 /* Dish.swift in Sources */,
 				84DECFD71F6108DF00236995 /* AppDelegate.swift in Sources */,
+				84DED0141F67D2BF00236995 /* RestaurantSearchRequest.swift in Sources */,
 				8B50BE571F6340B800202929 /* WinningVC.swift in Sources */,
 				8B50BE541F6332CC00202929 /* Winner.swift in Sources */,
 				84DECFE91F610BC200236995 /* CuisineChoices.swift in Sources */,
