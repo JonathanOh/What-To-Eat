@@ -8,15 +8,48 @@
 
 import UIKit
 
-class DishCardViewModel {
+class DishCardViewManager {
     
     private var cardViewsA = [DishCardView]()
     private var cardViewsATopConstraints = [NSLayoutConstraint]()
     private var cardViewsB = [DishCardView]()
     private var cardViewsBTopConstraints = [NSLayoutConstraint]()
+    private(set) var isAnimating: Bool = false
     
-    func getCardViewWith(roundNumber: Int) -> [DishCardView] {
+    func setAllButtonsEnabled(_ isEnabled: Bool) {
+        if isEnabled {
+            isAnimating = false
+            _ = cardViewsA.map { $0.isUserInteractionEnabled = true }
+            _ = cardViewsB.map { $0.isUserInteractionEnabled = true }
+        } else {
+            isAnimating = true
+            _ = cardViewsA.map { $0.isUserInteractionEnabled = false }
+            _ = cardViewsB.map { $0.isUserInteractionEnabled = false }
+        }
+    }
+    
+    func getIncomingCardViewWith(roundNumber: Int) -> [DishCardView] {
         return roundNumber % 2 == 0 ? cardViewsB : cardViewsA
+    }
+    
+    func getIncomingTopConstraintsWith(roundNumber: Int) -> [NSLayoutConstraint] {
+        return roundNumber % 2 == 0 ? cardViewsBTopConstraints : cardViewsATopConstraints
+    }
+    
+    func getOutgoingCardViewWith(roundNumber: Int) -> [DishCardView] {
+        return getIncomingCardViewWith(roundNumber: roundNumber + 1)
+    }
+    
+    func getOutgoingTopConstraintWith(roundNumber: Int) -> [NSLayoutConstraint] {
+        return getIncomingTopConstraintsWith(roundNumber: roundNumber + 1)
+    }
+    
+    func addDishCardViewFor(roundNumber: Int, dishView: DishCardView) {
+        if roundNumber % 2 == 0 {
+            cardViewsB.append(dishView)
+        } else {
+            cardViewsA.append(dishView)
+        }
     }
     
     func storeDishCardViewsFor(roundNumber: Int, dishViews: [DishCardView]) {
@@ -24,6 +57,14 @@ class DishCardViewModel {
             cardViewsB = dishViews
         } else {
             cardViewsA = dishViews
+        }
+    }
+    
+    func addDishCardViewTopConstraintFor(roundNumber: Int, topConstraint: NSLayoutConstraint) {
+        if roundNumber % 2 == 0 {
+            cardViewsBTopConstraints.append(topConstraint)
+        } else {
+            cardViewsATopConstraints.append(topConstraint)
         }
     }
     
@@ -42,29 +83,34 @@ class DishCardViewModel {
     
     func removeDishViewsFor(roundNumber: Int) {
         if roundNumber % 2 == 0 {
-            for index in stride(from: cardViewsA.count - 1, through: 0, by: -1) {
-                cardViewsA[index].removeFromSuperview()
-            }
-            cardViewsA.removeAll()
-        } else {
             for index in stride(from: cardViewsB.count - 1, through: 0, by: -1) {
                 cardViewsB[index].removeFromSuperview()
             }
             cardViewsB.removeAll()
+        } else {
+            for index in stride(from: cardViewsA.count - 1, through: 0, by: -1) {
+                cardViewsA[index].removeFromSuperview()
+            }
+            cardViewsA.removeAll()
         }
     }
     
     func removeTopConstraintsFor(roundNumber: Int) {
         if roundNumber % 2 == 0 {
-            cardViewsATopConstraints.removeAll()
-        } else {
             cardViewsBTopConstraints.removeAll()
+        } else {
+            cardViewsATopConstraints.removeAll()
         }
     }
     
     func removeDishViewsAndTopConstraintsFor(roundNumber: Int) {
         removeDishViewsFor(roundNumber: roundNumber)
         removeTopConstraintsFor(roundNumber: roundNumber)
+    }
+    
+    func removeAll() {
+        removeDishViewsAndTopConstraintsFor(roundNumber: 1)
+        removeDishViewsAndTopConstraintsFor(roundNumber: 2)
     }
     
 }

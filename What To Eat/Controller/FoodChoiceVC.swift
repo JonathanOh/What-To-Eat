@@ -16,8 +16,9 @@ class FoodChoiceVC: UIViewController {
 
     private var roundResults: RoundResults?
     private var currentRound: RoundCreator?
-    private var cardChoiceViews = [DishCardView]()
-    private var topConstraintOfCards = [NSLayoutConstraint]()
+    private let dishCardManager = DishCardViewManager()
+//    private var cardChoiceViews = [DishCardView]()
+//    private var topConstraintOfCards = [NSLayoutConstraint]()
     private var heightOfNavAndStatusBar: CGFloat {
         let statusBarHeight = UIApplication.shared.statusBarFrame.height
         let navigationBarHeight = navigationController?.navigationBar.frame.height ?? 64.0
@@ -45,54 +46,85 @@ class FoodChoiceVC: UIViewController {
         _ = DefaultValues.cuisines.map { $0.topFiveFoods.map { $0.resetTallies() } }
         roundResults = nil
         currentRound = nil
-        removeFoodCardsFromViewAndArray()
-        topConstraintOfCards.removeAll()
+        //removeFoodCardsFromViewAndArray()
+        //topConstraintOfCards.removeAll()
+        dishCardManager.removeAll()
         currentRound = RoundCreator(lastRoundResults: nil)
         guard let round = currentRound else { return }
         setupCardChoices(with: round)
     }
 
     func setupCardChoices(with round: RoundCreator) {
-        removeFoodCardsFromViewAndArray()
-        topConstraintOfCards.removeAll()
+        //removeFoodCardsFromViewAndArray()
+        //dishCardManager.removeDishViewsAndTopConstraintsFor(roundNumber: round.roundNumber)
+        //dishCardManager.removeTopConstraintsFor(roundNumber: round.roundNumber)
+        //topConstraintOfCards.removeAll()
         for x in 0..<Rules.dishChoicesPerRound {
             let card = DishCardView(dish: round.choiceOfDishesForUser[x], target: self, action: #selector(didPressCuisineButton(sender:)))
-            cardChoiceViews.append(card)
+            //var cardViews = [DishCardView]()
+            //cardViews.append(card)
+            //dishCardManager.storeDishCardViewsFor(roundNumber: round.roundNumber, dishViews: cardViews)
+            //cardChoiceViews.append(card)
+            dishCardManager.addDishCardViewFor(roundNumber: round.roundNumber, dishView: card)
             view.addSubview(card)
             card.widthAnchor.constraint(equalToConstant: view.bounds.width).isActive = true
             let heightOfCard: CGFloat = DishCardView.heightOfCardWith(screenHeight: view.frame.height)
             card.heightAnchor.constraint(equalToConstant: heightOfCard).isActive = true
             card.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
             // Top card will constrain according to status bar + nav bar + fixed spacing.  Next cards will constrain to fixed spacing to cards shown above it.
+            let cardChoiceViews = dishCardManager.getIncomingCardViewWith(roundNumber: round.roundNumber)
             let bottomAnchorOfViewAbove = (x == 0 ? view.topAnchor : cardChoiceViews[x-1].bottomAnchor)
             let topSpacing = (x == 0 ? valueToSpaceCards + heightOfNavAndStatusBar : valueToSpaceCards)
             let topAnchorConstraint = card.topAnchor.constraint(equalTo: bottomAnchorOfViewAbove, constant: topSpacing + animationOffset)
             topAnchorConstraint.isActive = true
-            topConstraintOfCards.append(topAnchorConstraint)
+            //var topConstraints = [NSLayoutConstraint]()
+            //topConstraints.append(topAnchorConstraint)
+            //dishCardManager.storeDishCardViewTopConstraintsFor(roundNumber: round.roundNumber, topConstraints: topConstraints)
+            dishCardManager.addDishCardViewTopConstraintFor(roundNumber: round.roundNumber, topConstraint: topAnchorConstraint)
         }
-        animateCardChoicesIn()
+        animateCardChoicesIn(roundNumber: round.roundNumber)
     }
     
-    func animateCardChoicesIn() {
+    func animateCardChoicesIn(roundNumber: Int) {
         view.layoutIfNeeded()
-        for constraint in topConstraintOfCards {
+        for constraint in dishCardManager.getIncomingTopConstraintsWith(roundNumber: roundNumber) {
             constraint.constant = constraint.constant - animationOffset
         }
-        UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveLinear, animations: { [weak self] in
+        UIView.animate(withDuration: 0.75, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveLinear, animations: { [weak self] in
             self?.view.layoutIfNeeded()
             }, completion: nil)
     }
     
-    func removeFoodCardsFromViewAndArray() {
-        if !cardChoiceViews.isEmpty {
-            for viewIndex in stride(from: cardChoiceViews.count-1, through: 0, by: -1) {
-                cardChoiceViews[viewIndex].removeFromSuperview()
-            }
+    func removeFoodCardsFromViewAndArray(roundNumber: Int) {
+        //let dishCardViewsForRound = dishCardManager.getCardViewWith(roundNumber: roundNumber)
+        //if !dishCardViewsForRound.isEmpty {
+            dishCardManager.removeDishViewsFor(roundNumber: roundNumber)
+            //            for viewIndex in stride(from: cardChoiceViews.count-1, through: 0, by: -1) {
+//                cardChoiceViews[viewIndex].removeFromSuperview()
+//            }
+       // }
+        //cardChoiceViews.removeAll()
+    }
+    
+    func animateCardChoicesOut(roundNumber: Int) {
+        view.layoutIfNeeded()
+        dishCardManager.setAllButtonsEnabled(false)
+        for constraint in dishCardManager.getIncomingTopConstraintsWith(roundNumber: roundNumber) {
+            constraint.constant = constraint.constant - animationOffset
         }
-        cardChoiceViews.removeAll()
+        UIView.animate(withDuration: 1.0, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0, options: .curveLinear, animations: { [weak self] in
+            self?.view.layoutIfNeeded()
+            }, completion: { [weak self] completed in
+                self?.dishCardManager.removeDishViewsAndTopConstraintsFor(roundNumber: roundNumber)
+                self?.dishCardManager.setAllButtonsEnabled(true)
+            //self?.dishCardManager.removeDishViewsAndTopConstraintsFor(roundNumber: roundNumber + 1)
+            })
     }
     
     func didPressCuisineButton(sender: DishCardView) {
+        if dishCardManager.isAnimating {
+            return
+        }
         print("didPressCuisineButton \(sender.dish.dishName.rawValue)")
         guard let thisRound = currentRound else {
             print("We do not have a valid round didPressCuisineButton")
@@ -100,9 +132,13 @@ class FoodChoiceVC: UIViewController {
         }
         
         roundResults = submitRoundResults(thisRound, winningDish: sender.dish)
-        if !isThereAWinner() {
-            currentRound = RoundCreator(lastRoundResults: roundResults)
-            setupCardChoices(with: currentRound!)
+        if let round = roundResults {
+            animateCardChoicesOut(roundNumber: round.roundNumber)
+            if !isThereAWinner() {
+                currentRound = RoundCreator(lastRoundResults: round)
+                guard let currentRound = currentRound else { return }
+                setupCardChoices(with: currentRound)
+            }
         }
     }
     
