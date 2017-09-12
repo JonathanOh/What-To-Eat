@@ -71,7 +71,7 @@
 		8B50BE4D1F62108100202929 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8B50BE501F621BCE00202929 /* WinChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinChecker.swift; sourceTree = "<group>"; };
 		8B50BE531F6332CC00202929 /* Winner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Winner.swift; sourceTree = "<group>"; };
-		8B50BE561F6340B800202929 /* WinningVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WinningVC.swift; path = ../Models/WinningVC.swift; sourceTree = "<group>"; };
+		8B50BE561F6340B800202929 /* WinningVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinningVC.swift; sourceTree = "<group>"; };
 		8B50BE5A1F6350D900202929 /* DishCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -183,8 +183,7 @@
 			children = (
 				8B50BE5A1F6350D900202929 /* DishCardView.swift */,
 			);
-			name = View;
-			path = Controller;
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
