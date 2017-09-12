@@ -40,15 +40,15 @@ class DishCardViewModel {
         storeDishCardViewTopConstraintsFor(roundNumber: roundNumber, topConstraints: topConstraints)
     }
     
-    func removeDishViewsFor(roundNumber: Int, inView: UIView) {
+    func removeDishViewsFor(roundNumber: Int) {
         if roundNumber % 2 == 0 {
-            for x in stride(from: cardViewsA.count - 1, through: 0, by: -1) {
-                cardViewsA[x].removeFromSuperview()
+            for index in stride(from: cardViewsA.count - 1, through: 0, by: -1) {
+                cardViewsA[index].removeFromSuperview()
             }
             cardViewsA.removeAll()
         } else {
-            for x in stride(from: cardViewsA.count - 1, through: 0, by: -1) {
-                cardViewsB[x].removeFromSuperview()
+            for index in stride(from: cardViewsB.count - 1, through: 0, by: -1) {
+                cardViewsB[index].removeFromSuperview()
             }
             cardViewsB.removeAll()
         }
@@ -62,8 +62,8 @@ class DishCardViewModel {
         }
     }
     
-    func removeDishViewsAndTopConstraintsFor(roundNumber: Int, inView: UIView) {
-        removeDishViewsFor(roundNumber: roundNumber, inView: inView)
+    func removeDishViewsAndTopConstraintsFor(roundNumber: Int) {
+        removeDishViewsFor(roundNumber: roundNumber)
         removeTopConstraintsFor(roundNumber: roundNumber)
     }
     
