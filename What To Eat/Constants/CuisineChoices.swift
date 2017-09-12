@@ -29,71 +29,71 @@ enum CuisineChoices: String {
 }
 
 enum PossibleDishes: String {
-    case bibimbap
-    case bulgogi
-    case soontofu
-    case galbi
-    case nengmyun
+    case koreanBibimbap = "bibimbap"
+    case koreanJapchae = "japchae"
+    case koreanSoontofu = "soontofu"
+    case koreanGalbi = "galbi"
+    case koreanJajangmyeon = "jajangmyeon"
     
-    case burgers
-    case steak
-    case hotDog = "hot dog"
-    case nachos
-    case frenchFries = "french fries"
+    case americanBurgers = "burgers"
+    case americanSteak = "steak"
+    case americanHotDog = "hot dog"
+    case americanNachos = "nachos"
+    case americanFriedChicken = "fried chicken"
     
-    case orangeChicken = "orange chicken"
-    case chowFun = "chow fun"
-    case broccoliBeef = "broccoli beef"
-    case chineseSoup
-    case chineseNoodles
+    case chineseChowMein = "chow mein"
+    case chineseSweetAndSourChicken = "sweet and sour chicken"
+    case chineseSteamedDumplings = "steamed dumplings"
+    case chineseFriedRice = "fried rice"
+    case chineseKungPaoChicken = "kung pao chicken"
     
-    case japaneseA
-    case japaneseB
-    case japaneseC
-    case japaneseD
-    case japaneseE
+    case japaneseUdon = "udon"
+    case japaneseRamen = "ramen"
+    case japaneseChickenKatsu = "chicken katsu"
+    case japaneseGyudon = "gyudon"
+    case japaneseMisoSoup = "miso soup"
     
-    case thaiA
-    case thaiB
-    case thaiC
-    case thaiD
-    case thaiE
+    case thaiPadThai = "pad thai"
+    case thaiPadSeeEw = "pad see ew"
+    case thaiYellowCurry = "yellow curry"
+    case thaiGreenPapayaSalad = "green papaya salad"
+    case thaiRedCurry = "red curry"
     
-    case indianA
-    case indianB
-    case indianC
-    case indianD
-    case indianE
+    case indianButterChicken = "butter chicken"
+    case indianTandooriChicken = "tandoori chicken"
+    case indianChickenTikkaMasala = "chicken tikka masala"
+    case indianSamosa = "samosa"
+    case indianLambVindaloo = "lamb vindaloo"
     
-    case italianA
-    case italianB
-    case italianC
-    case italianD
-    case italianE
+    case italianChickenParmigiana = "chicken parmigiana"
+    case italianFettuccineAlfredo = "fettuccine alfredo"
+    case italianLasagna = "lasagna"
+    case italianSpaghetti = "spaghetti"
+    case italianLinguine = "linguine"
     
-    case mexicanA
-    case mexicanB
-    case mexicanC
-    case mexicanD
-    case mexicanE
+    case mexicanBurrito = "burrito"
+    case mexicanTaco = "taco"
+    case mexicanEnchilada = "enchilada"
+    case mexicanChilaquiles = "chilaquiles"
+    case mexicanTamales = "tamales"
     
-    case vietnameseA
-    case vietnameseB
-    case vietnameseC
-    case vietnameseD
-    case vietnameseE
+    case vietnamesePho = "pho"
+    case vietnameseBanhMi = "banh mi"
+    case vietnameseSpringRolls = "spring rolls"
+    case vietnameseFiveSpiceChicken = "five spice chicken"
+    case vietnameseEBBQPorkOverRice = "bbq pork over rice"
     
-    case mediterraneanA
-    case mediterraneanB
-    case mediterraneanC
-    case mediterraneanD
-    case mediterraneanE
+    case mediterraneanSpanakopita = "spanakopita"
+    case mediterraneanBabaGhanoush = "baba ghanoush"
+    case mediterraneanGyro = "gyro"
+    case mediterraneanShawarma = "shawarma"
+    case mediterraneanFalafel = "falafel"
     
-    case pizzaA
-    case pizzaB
-    case pizzaC
-    case pizzaD
-    case pizzaE
+    case pizzaPepperoniPizza = "pepperoni pizza"
+    case pizzaDeepDishPizza = "deep dish pizza"
+    case pizzaChicagoStylePizza = "chicago style pizza"
+    case pizzaSupremePizza = "supreme pizza"
+    case pizzaHawaiianPizza = "hawaiian pizza"
     
     case saladA
     case saladB
@@ -113,11 +113,11 @@ enum PossibleDishes: String {
     case sushiD
     case sushiE
     
-    case fastFoodA
-    case fastFoodB
-    case fastFoodC
-    case fastFoodD
-    case fastFoodE
+    case fastFoodMcdonalds = "mcdonalds"
+    case fastFoodKFC = "kfc"
+    case fastFoodTacoBell = "taco bell"
+    case fastFoodJackInTheBox = "jack in the box"
+    case fastFoodInNOut = "in n out"
     
     case noodlesA
     case noodlesB

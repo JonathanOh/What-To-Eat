@@ -27,21 +27,21 @@ struct Rules {
 struct DefaultValues {
     
     static let cuisines: [Cuisine] = [
-        Cuisine(cuisineType: .american, topFiveFoods: [.burgers, .steak, .hotDog, .nachos, .frenchFries]),
-        Cuisine(cuisineType: .korean, topFiveFoods: [.bibimbap, .bulgogi, .soontofu, .galbi, .nengmyun]),
-        Cuisine(cuisineType: .chinese, topFiveFoods: [.orangeChicken, .chowFun, .broccoliBeef, .chineseSoup, .chineseNoodles]),
-        Cuisine(cuisineType: .japanese, topFiveFoods: [.japaneseA, .japaneseB, .japaneseC, .japaneseD, .japaneseE]),
-        Cuisine(cuisineType: .thai, topFiveFoods: [.thaiA, .thaiB, .thaiC, .thaiD, .thaiE]),
-        Cuisine(cuisineType: .indian, topFiveFoods: [.indianA, .indianB, .indianC, .indianD, .indianE]),
-        Cuisine(cuisineType: .italian, topFiveFoods: [.italianA, .italianB, .italianC, .italianD, .italianE]),
-        Cuisine(cuisineType: .mexican, topFiveFoods: [.mexicanA, .mexicanB, .mexicanC, .mexicanD, .mexicanE]),
-        Cuisine(cuisineType: .vietnamese, topFiveFoods: [.vietnameseA, .vietnameseB, .vietnameseC, .vietnameseD, .vietnameseE]),
-        Cuisine(cuisineType: .mediterranean, topFiveFoods: [.mediterraneanA, .mediterraneanB, .mediterraneanC,.mediterraneanD, .mediterraneanE]),
-        Cuisine(cuisineType: .pizza, topFiveFoods: [.pizzaA, .pizzaB, .pizzaC, .pizzaD, .pizzaE]),
+        Cuisine(cuisineType: .american, topFiveFoods: [.americanBurgers, .americanSteak, .americanHotDog, .americanNachos, .americanFriedChicken]),
+        Cuisine(cuisineType: .korean, topFiveFoods: [.koreanBibimbap, .koreanJapchae, .koreanSoontofu, .koreanGalbi, .koreanJajangmyeon]),
+        Cuisine(cuisineType: .chinese, topFiveFoods: [.chineseChowMein, .chineseSweetAndSourChicken, .chineseSteamedDumplings, .chineseFriedRice, .chineseKungPaoChicken]),
+        Cuisine(cuisineType: .japanese, topFiveFoods: [.japaneseUdon, .japaneseRamen, .japaneseChickenKatsu, .japaneseGyudon, .japaneseMisoSoup]),
+        Cuisine(cuisineType: .thai, topFiveFoods: [.thaiPadThai, .thaiPadSeeEw, .thaiYellowCurry, .thaiGreenPapayaSalad, .thaiRedCurry]),
+        Cuisine(cuisineType: .indian, topFiveFoods: [.indianButterChicken, .indianTandooriChicken, .indianChickenTikkaMasala, .indianSamosa, .indianLambVindaloo]),
+        Cuisine(cuisineType: .italian, topFiveFoods: [.italianChickenParmigiana, .italianFettuccineAlfredo, .italianLasagna, .italianSpaghetti, .italianLinguine]),
+        Cuisine(cuisineType: .mexican, topFiveFoods: [.mexicanBurrito, .mexicanTaco, .mexicanEnchilada, .mexicanChilaquiles, .mexicanTamales]),
+        Cuisine(cuisineType: .vietnamese, topFiveFoods: [.vietnamesePho, .vietnameseBanhMi, .vietnameseSpringRolls, .vietnameseFiveSpiceChicken, .vietnameseEBBQPorkOverRice]),
+        Cuisine(cuisineType: .mediterranean, topFiveFoods: [.mediterraneanSpanakopita, .mediterraneanBabaGhanoush, .mediterraneanGyro, .mediterraneanShawarma, .mediterraneanFalafel]),
+        Cuisine(cuisineType: .pizza, topFiveFoods: [.pizzaPepperoniPizza, .pizzaDeepDishPizza, .pizzaChicagoStylePizza, .pizzaSupremePizza, .pizzaHawaiianPizza]),
         Cuisine(cuisineType: .salad, topFiveFoods: [.saladA, .saladB, .saladC, .saladD, .saladE]),
         Cuisine(cuisineType: .deli, topFiveFoods: [.deliA, .deliB, .deliC, .deliD, .deliE]),
         Cuisine(cuisineType: .sushi, topFiveFoods: [.sushiA, .sushiB, .sushiC, .sushiD, .sushiE]),
-        Cuisine(cuisineType: .fastFood, topFiveFoods: [.fastFoodA, .fastFoodB, .fastFoodC, .fastFoodD, .fastFoodE]),
+        Cuisine(cuisineType: .fastFood, topFiveFoods: [.fastFoodMcdonalds, .fastFoodKFC, .fastFoodTacoBell, .fastFoodJackInTheBox, .fastFoodInNOut]),
         Cuisine(cuisineType: .noodles, topFiveFoods: [.noodlesA, .noodlesB, .noodlesC, .noodlesD, .noodlesE]),
         Cuisine(cuisineType: .seafood, topFiveFoods: [.seafoodA, .seafoodB, .seafoodC, .seafoodD, .seafoodE])
     ]
