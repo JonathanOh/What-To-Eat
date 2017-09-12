@@ -9,3 +9,9 @@
 import Foundation
 
 // takes an endpoint from a request object and can send and serialize request/responses
+class HTTPManager {
+    static let shared = HTTPManager()
+    
+    
+}
+
