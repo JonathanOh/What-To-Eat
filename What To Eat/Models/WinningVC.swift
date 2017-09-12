@@ -33,6 +33,7 @@ class WinningVC: UIViewController {
         testLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         testLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     
+        navigationItem.setHidesBackButton(true, animated: false)
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Reset Round", style: .plain, target: self, action: #selector(tappedResetButton))
         //navigationController?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Reset Round", style: .plain, target: self, action: #selector(tappedResetButton))
     }
