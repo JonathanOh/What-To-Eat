@@ -26,8 +26,9 @@
 		84DED0081F624C8200236995 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DED0061F624C8200236995 /* Constants.swift */; };
 		84DED00E1F67912600236995 /* DishCardViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DED00D1F67912600236995 /* DishCardViewManager.swift */; };
 		84DED00F1F67912600236995 /* DishCardViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DED00D1F67912600236995 /* DishCardViewManager.swift */; };
-		84DED0121F67D2A800236995 /* HTTPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DED0111F67D2A800236995 /* HTTPManager.swift */; };
+		84DED0121F67D2A800236995 /* HTTPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DED0111F67D2A800236995 /* HTTPService.swift */; };
 		84DED0141F67D2BF00236995 /* RestaurantSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DED0131F67D2BF00236995 /* RestaurantSearchRequest.swift */; };
+		8B0E207C1F68A2D600381046 /* JSONSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0E207B1F68A2D600381046 /* JSONSerializer.swift */; };
 		8B50BE4B1F61C69000202929 /* RoundCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BE4A1F61C69000202929 /* RoundCreator.swift */; };
 		8B50BE4C1F61C69000202929 /* RoundCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BE4A1F61C69000202929 /* RoundCreator.swift */; };
 		8B50BE4E1F62108100202929 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BE4D1F62108100202929 /* Extensions.swift */; };
@@ -69,8 +70,9 @@
 		84DED0031F6247AA00236995 /* RoundResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundResults.swift; sourceTree = "<group>"; };
 		84DED0061F624C8200236995 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		84DED00D1F67912600236995 /* DishCardViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishCardViewManager.swift; sourceTree = "<group>"; };
-		84DED0111F67D2A800236995 /* HTTPManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPManager.swift; sourceTree = "<group>"; };
+		84DED0111F67D2A800236995 /* HTTPService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPService.swift; sourceTree = "<group>"; };
 		84DED0131F67D2BF00236995 /* RestaurantSearchRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantSearchRequest.swift; sourceTree = "<group>"; };
+		8B0E207B1F68A2D600381046 /* JSONSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONSerializer.swift; sourceTree = "<group>"; };
 		8B50BE4A1F61C69000202929 /* RoundCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundCreator.swift; sourceTree = "<group>"; };
 		8B50BE4D1F62108100202929 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8B50BE501F621BCE00202929 /* WinChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinChecker.swift; sourceTree = "<group>"; };
@@ -187,7 +189,8 @@
 			isa = PBXGroup;
 			children = (
 				84DED0151F67D2DA00236995 /* Requests */,
-				84DED0111F67D2A800236995 /* HTTPManager.swift */,
+				84DED0111F67D2A800236995 /* HTTPService.swift */,
+				8B0E207B1F68A2D600381046 /* JSONSerializer.swift */,
 			);
 			path = HTTP;
 			sourceTree = "<group>";
@@ -313,13 +316,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				84DECFEB1F610C9000236995 /* FoodTracker.swift in Sources */,
+				8B0E207C1F68A2D600381046 /* JSONSerializer.swift in Sources */,
 				8B50BE4E1F62108100202929 /* Extensions.swift in Sources */,
 				84DED00E1F67912600236995 /* DishCardViewManager.swift in Sources */,
 				8B50BE5B1F6350D900202929 /* DishCardView.swift in Sources */,
 				8B50BE511F621BCE00202929 /* WinChecker.swift in Sources */,
 				84DECFED1F61120400236995 /* Cuisine.swift in Sources */,
 				84DED0041F6247AA00236995 /* RoundResults.swift in Sources */,
-				84DED0121F67D2A800236995 /* HTTPManager.swift in Sources */,
+				84DED0121F67D2A800236995 /* HTTPService.swift in Sources */,
 				84DED0071F624C8200236995 /* Constants.swift in Sources */,
 				84DECFD91F6108DF00236995 /* FoodChoiceVC.swift in Sources */,
 				8B50BE4B1F61C69000202929 /* RoundCreator.swift in Sources */,

@@ -32,6 +32,8 @@ class FoodChoiceVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        
+        HTTPService.shared.getAccessToken(APIKeys.yelpClientID, clientSecret: APIKeys.yelpClientSecret)
         // Do any additional setup after loading the view, typically from a nib.
         resetRound()
     }

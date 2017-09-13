@@ -46,3 +46,8 @@ struct DefaultValues {
         Cuisine(cuisineType: .seafood, topFiveFoods: [.seafoodA, .seafoodB, .seafoodC, .seafoodD, .seafoodE])
     ]
 }
+
+struct APIKeys {
+    static let yelpClientID = "wpNIOEcOyUfL2rtQHVtyhQ"
+    static let yelpClientSecret = "SCGM0UvLNmqJMpGNYNZkH4W04vosTuulgc2l2Ff6aGeS0zkBnd2uw3gavTsgHVuD"
+}
