@@ -21,7 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigationController = UINavigationController(rootViewController: foodChoiceViewController)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
-        HTTPService.shared.refreshTokenIfNeeded(APIKeys.yelpClientID, clientSecret: APIKeys.yelpClientSecret)
         return true
     }
 
@@ -41,6 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        HTTPService.shared.refreshTokenIfNeeded(APIKeys.yelpClientID, clientSecret: APIKeys.yelpClientSecret)
     }
 
     func applicationWillTerminate(_ application: UIApplication) {

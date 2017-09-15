@@ -12,13 +12,21 @@ import Foundation
 class HTTPService {
     
     static let shared = HTTPService()
+    
+    enum RequestType: String {
+        case POST
+        case GET
+    }
     private var token: Token?
     private let tokenType = "Bearer"
     
     func refreshTokenIfNeeded(_ clientId: String, clientSecret: String) {
+        if let nonNilToken = token {
+            if nonNilToken.expirationDate > Date() { return }
+        }
         guard let url = URL(string: "https://api.yelp.com/oauth2/token?client_id=\(clientId)&client_secret=\(clientSecret)") else { return }
         var request = URLRequest(url: url)
-        request.httpMethod = "POST"
+        request.httpMethod = RequestType.POST.rawValue
         URLSession.shared.dataTask(with: request) { (data, urlresponse, error) in
             if let err = error { print("we have an error: \(err)") }
             guard let data = data else {
@@ -26,7 +34,6 @@ class HTTPService {
                 return
             }
             guard let jsonDict = JSONSerializer.getSerializedDictionaryFrom(data: data) else { return }
-            // create token object to map the response instead.
             self.token = Token(json: jsonDict)
         }.resume()
     }
