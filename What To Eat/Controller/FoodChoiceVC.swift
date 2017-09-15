@@ -17,11 +17,6 @@ class FoodChoiceVC: UIViewController {
     private var roundResults: RoundResults?
     private var currentRound: RoundCreator?
     private let dishCardManager = DishCardViewManager()
-    private var heightOfNavAndStatusBar: CGFloat {
-        let statusBarHeight = UIApplication.shared.statusBarFrame.height
-        let navigationBarHeight = navigationController?.navigationBar.frame.height ?? 64.0
-        return statusBarHeight + navigationBarHeight
-    }
     private var valueToSpaceCards: CGFloat {
         let visibleHeight: CGFloat = view.frame.height - heightOfNavAndStatusBar
         let heightOfAllCards: CGFloat = (view.frame.height/CGFloat(Rules.dishChoicesPerRound + 1)) * CGFloat(Rules.dishChoicesPerRound)

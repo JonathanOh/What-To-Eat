@@ -18,7 +18,6 @@ class HTTPService {
         case GET
     }
     private var token: Token?
-    private let tokenType = "Bearer"
     
     func refreshTokenIfNeeded(_ clientId: String, clientSecret: String) {
         if let nonNilToken = token {
@@ -29,11 +28,8 @@ class HTTPService {
         request.httpMethod = RequestType.POST.rawValue
         URLSession.shared.dataTask(with: request) { (data, urlresponse, error) in
             if let err = error { print("we have an error: \(err)") }
-            guard let data = data else {
-                print("data is nil")
-                return
-            }
-            guard let jsonDict = JSONSerializer.getSerializedDictionaryFrom(data: data) else { return }
+            guard let data = data,
+                let jsonDict = JSONSerializer.getSerializedDictionaryFrom(data: data) else { return }
             self.token = Token(json: jsonDict)
         }.resume()
     }
@@ -44,9 +40,3 @@ class HTTPService {
     }
     
 }
-
-// If any request fails, we must attempt to refresh access token once before giving up
-
-/*
- https://api.yelp.com/oauth2/token?client_id=wpNIOEcOyUfL2rtQHVtyhQ&client_secret=SCGM0UvLNmqJMpGNYNZkH4W04vosTuulgc2l2Ff6aGeS0zkBnd2uw3gavTsgHVuD
- */

@@ -6,7 +6,7 @@
 //  Copyright © 2017 esohjay. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 extension MutableCollection where Index == Int {
     /// Shuffle the elements of self in-place.
@@ -25,5 +25,13 @@ extension MutableCollection where Index == Int {
 extension Int {
     func randomNumberWithSelfAsMaximum() -> Int {
         return Int(arc4random_uniform(UInt32(self)))
+    }
+}
+
+extension UIViewController {
+    var heightOfNavAndStatusBar: CGFloat {
+        let statusBarHeight = UIApplication.shared.statusBarFrame.height
+        let navigationBarHeight = navigationController?.navigationBar.frame.height ?? 64.0
+        return statusBarHeight + navigationBarHeight
     }
 }

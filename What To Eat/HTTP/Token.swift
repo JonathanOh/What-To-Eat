@@ -11,8 +11,6 @@ import Foundation
 class Token {
     let accessToken: String
     let tokenType: String
-    let expiresIn: Int
-    let currentTime: Date
     let expirationDate: Date
 
     init?(json: [String:Any]) {
@@ -21,9 +19,7 @@ class Token {
             let expiresIn = json["expires_in"] as? Int else { return nil }
         self.accessToken = accessToken
         self.tokenType = tokenType
-        self.expiresIn = expiresIn
-        self.currentTime = Date()
-        self.expirationDate = Date.init(timeInterval: Double(expiresIn), since: self.currentTime)
+        self.expirationDate = Date(timeInterval: Double(expiresIn), since: Date())
     }
     
 }
