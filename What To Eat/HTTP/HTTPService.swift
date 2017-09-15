@@ -27,10 +27,7 @@ class HTTPService {
             }
             guard let jsonDict = JSONSerializer.getSerializedDictionaryFrom(data: data) else { return }
             // create token object to map the response instead.
-            guard let accessToken = jsonDict["access_token"] as? String,
-                let tokenType = jsonDict["token_type"] as? String,
-                let expiresIn = jsonDict["expires_in"] as? Int else { return }
-            self.token = Token(accessToken: accessToken, tokenType: tokenType, expiresIn: expiresIn)
+            token = Token(json: jsonDict)
         }.resume()
     }
     

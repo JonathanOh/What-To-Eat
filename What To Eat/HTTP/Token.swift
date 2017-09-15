@@ -13,11 +13,15 @@ class Token {
     let tokenType: String
     let expiresIn: Int
     let currentTime: Date
-    
-    init(accessToken: String, tokenType: String, expiresIn: Int) {
+
+    init?(json: [String:Any]) {
+        guard let accessToken = json["access_token"] as? String,
+            let tokenType = json["token_type"] as? String,
+            let expiresIn = json["expires_in"] as? Int else { return nil }
         self.accessToken = accessToken
         self.tokenType = tokenType
         self.expiresIn = expiresIn
         self.currentTime = Date()
     }
+    
 }
