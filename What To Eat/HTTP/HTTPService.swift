@@ -10,12 +10,13 @@ import Foundation
 
 // takes an endpoint from a request object and can send and serialize request/responses
 class HTTPService {
+    
     static let shared = HTTPService()
-    private var accessToken: String?
+    private var token: Token?
     private let tokenType = "Bearer"
     
-    func getAccessToken(_ clientId: String, clientSecret: String) -> String? {
-        guard let url = URL(string: "https://api.yelp.com/oauth2/token?client_id=\(clientId)&client_secret=\(clientSecret)") else { return nil }
+    func refreshTokenIfNeeded(_ clientId: String, clientSecret: String) {
+        guard let url = URL(string: "https://api.yelp.com/oauth2/token?client_id=\(clientId)&client_secret=\(clientSecret)") else { return }
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         URLSession.shared.dataTask(with: request) { (data, urlresponse, error) in
@@ -26,9 +27,11 @@ class HTTPService {
             }
             guard let jsonDict = JSONSerializer.getSerializedDictionaryFrom(data: data) else { return }
             // create token object to map the response instead.
-            self.accessToken = jsonDict["access_token"] as? String
+            guard let accessToken = jsonDict["access_token"] as? String,
+                let tokenType = jsonDict["token_type"] as? String,
+                let expiresIn = jsonDict["expires_in"] as? Int else { return }
+            self.token = Token(accessToken: accessToken, tokenType: tokenType, expiresIn: expiresIn)
         }.resume()
-        return ""
     }
     
     func request(_ endPoint: String) -> [String:Any] {

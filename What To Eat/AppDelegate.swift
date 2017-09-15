@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigationController = UINavigationController(rootViewController: foodChoiceViewController)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
-        
+        HTTPService.shared.refreshTokenIfNeeded(APIKeys.yelpClientID, clientSecret: APIKeys.yelpClientSecret)
         return true
     }
 

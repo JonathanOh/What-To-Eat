@@ -29,6 +29,8 @@
 		84DED0121F67D2A800236995 /* HTTPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DED0111F67D2A800236995 /* HTTPService.swift */; };
 		84DED0141F67D2BF00236995 /* RestaurantSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DED0131F67D2BF00236995 /* RestaurantSearchRequest.swift */; };
 		8B0E207C1F68A2D600381046 /* JSONSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0E207B1F68A2D600381046 /* JSONSerializer.swift */; };
+		8B0E207E1F6C5E0A00381046 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0E207D1F6C5E0A00381046 /* Token.swift */; };
+		8B0E207F1F6C5E0A00381046 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0E207D1F6C5E0A00381046 /* Token.swift */; };
 		8B50BE4B1F61C69000202929 /* RoundCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BE4A1F61C69000202929 /* RoundCreator.swift */; };
 		8B50BE4C1F61C69000202929 /* RoundCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BE4A1F61C69000202929 /* RoundCreator.swift */; };
 		8B50BE4E1F62108100202929 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BE4D1F62108100202929 /* Extensions.swift */; };
@@ -73,6 +75,7 @@
 		84DED0111F67D2A800236995 /* HTTPService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPService.swift; sourceTree = "<group>"; };
 		84DED0131F67D2BF00236995 /* RestaurantSearchRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantSearchRequest.swift; sourceTree = "<group>"; };
 		8B0E207B1F68A2D600381046 /* JSONSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONSerializer.swift; sourceTree = "<group>"; };
+		8B0E207D1F6C5E0A00381046 /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		8B50BE4A1F61C69000202929 /* RoundCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundCreator.swift; sourceTree = "<group>"; };
 		8B50BE4D1F62108100202929 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8B50BE501F621BCE00202929 /* WinChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinChecker.swift; sourceTree = "<group>"; };
@@ -191,6 +194,7 @@
 				84DED0151F67D2DA00236995 /* Requests */,
 				84DED0111F67D2A800236995 /* HTTPService.swift */,
 				8B0E207B1F68A2D600381046 /* JSONSerializer.swift */,
+				8B0E207D1F6C5E0A00381046 /* Token.swift */,
 			);
 			path = HTTP;
 			sourceTree = "<group>";
@@ -330,6 +334,7 @@
 				84DECFEF1F61149E00236995 /* Dish.swift in Sources */,
 				84DECFD71F6108DF00236995 /* AppDelegate.swift in Sources */,
 				84DED0141F67D2BF00236995 /* RestaurantSearchRequest.swift in Sources */,
+				8B0E207E1F6C5E0A00381046 /* Token.swift in Sources */,
 				8B50BE571F6340B800202929 /* WinningVC.swift in Sources */,
 				8B50BE541F6332CC00202929 /* Winner.swift in Sources */,
 				84DECFE91F610BC200236995 /* CuisineChoices.swift in Sources */,
@@ -346,6 +351,7 @@
 				8B50BE5C1F6350D900202929 /* DishCardView.swift in Sources */,
 				84DED0021F613BBB00236995 /* Dish.swift in Sources */,
 				84DED0011F613BB700236995 /* CuisineChoices.swift in Sources */,
+				8B0E207F1F6C5E0A00381046 /* Token.swift in Sources */,
 				8B50BE4F1F62108100202929 /* Extensions.swift in Sources */,
 				84DED0001F613A3F00236995 /* FoodTracker.swift in Sources */,
 				84DED00F1F67912600236995 /* DishCardViewManager.swift in Sources */,
