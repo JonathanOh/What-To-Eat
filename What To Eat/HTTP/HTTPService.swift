@@ -34,9 +34,15 @@ class HTTPService {
         }.resume()
     }
     
-    func request(_ endPoint: String) -> [String:Any] {
+    func requestJSONArray(_ endPoint: String, response: @escaping ([[String:Any]]) -> Void) {
         // Construct an endpoint and send the request off
-        return [String:Any]()
+        guard let url = URL(string: endPoint) else { return }
+        URLSession.shared.dataTask(with: url) { (data, urlResponse, error) in
+            if let data = data {
+                guard let json = JSONSerializer.getSerializedArrayFrom(data: data) else { return }
+                response(json)
+            }
+        }.resume()
     }
     
 }

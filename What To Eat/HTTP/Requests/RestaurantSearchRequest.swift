@@ -37,5 +37,7 @@ class RestaurantSearchRequest {
         self.location = location
     }
     
+    func send(_ endPoint: String, )
+    
 }
 

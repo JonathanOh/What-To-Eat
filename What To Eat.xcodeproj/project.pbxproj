@@ -31,6 +31,8 @@
 		8B0E207F1F6C5E0A00381046 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0E207D1F6C5E0A00381046 /* Token.swift */; };
 		8B0E20811F6C62E300381046 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0E20801F6C62E300381046 /* Constants.swift */; };
 		8B0E20821F6C62E300381046 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0E20801F6C62E300381046 /* Constants.swift */; };
+		8B0E20EF1F70934200381046 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0E20EE1F70934200381046 /* Business.swift */; };
+		8B0E20F11F70944600381046 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0E20F01F70944600381046 /* Location.swift */; };
 		8B50BE4B1F61C69000202929 /* RoundCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BE4A1F61C69000202929 /* RoundCreator.swift */; };
 		8B50BE4C1F61C69000202929 /* RoundCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BE4A1F61C69000202929 /* RoundCreator.swift */; };
 		8B50BE4E1F62108100202929 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BE4D1F62108100202929 /* Extensions.swift */; };
@@ -76,6 +78,8 @@
 		8B0E207B1F68A2D600381046 /* JSONSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONSerializer.swift; sourceTree = "<group>"; };
 		8B0E207D1F6C5E0A00381046 /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		8B0E20801F6C62E300381046 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8B0E20EE1F70934200381046 /* Business.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
+		8B0E20F01F70944600381046 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		8B50BE4A1F61C69000202929 /* RoundCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundCreator.swift; sourceTree = "<group>"; };
 		8B50BE4D1F62108100202929 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8B50BE501F621BCE00202929 /* WinChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinChecker.swift; sourceTree = "<group>"; };
@@ -140,6 +144,7 @@
 		84DECFF01F61331400236995 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				8B0E20ED1F70932000381046 /* Yelp Models */,
 				84DECFEC1F61120400236995 /* Cuisine.swift */,
 				8B50BE531F6332CC00202929 /* Winner.swift */,
 				84DECFEE1F61149E00236995 /* Dish.swift */,
@@ -205,6 +210,15 @@
 				84DED0131F67D2BF00236995 /* RestaurantSearchRequest.swift */,
 			);
 			path = Requests;
+			sourceTree = "<group>";
+		};
+		8B0E20ED1F70932000381046 /* Yelp Models */ = {
+			isa = PBXGroup;
+			children = (
+				8B0E20EE1F70934200381046 /* Business.swift */,
+				8B0E20F01F70944600381046 /* Location.swift */,
+			);
+			name = "Yelp Models";
 			sourceTree = "<group>";
 		};
 		8B50BE591F63508900202929 /* View */ = {
@@ -332,6 +346,8 @@
 				84DECFD91F6108DF00236995 /* FoodChoiceVC.swift in Sources */,
 				8B50BE4B1F61C69000202929 /* RoundCreator.swift in Sources */,
 				84DECFEF1F61149E00236995 /* Dish.swift in Sources */,
+				8B0E20F11F70944600381046 /* Location.swift in Sources */,
+				8B0E20EF1F70934200381046 /* Business.swift in Sources */,
 				84DECFD71F6108DF00236995 /* AppDelegate.swift in Sources */,
 				84DED0141F67D2BF00236995 /* RestaurantSearchRequest.swift in Sources */,
 				8B0E207E1F6C5E0A00381046 /* Token.swift in Sources */,
