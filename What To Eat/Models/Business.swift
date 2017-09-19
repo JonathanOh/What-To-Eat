@@ -12,7 +12,7 @@ struct Business {
     let id: String
     let name: String
     let imageURL: String
-    let isCloser: Bool
+    let isClosed: Bool
     let yelpURL: String
     let reviewCount: Int
     //let categories: [Category]
@@ -24,49 +24,39 @@ struct Business {
     let phone: String
     let displayPhone: String
     let distance: Double
+    let errorString = "Could not get JSON"
+    
+    init?(json: [String:Any]) {
+        guard let jsonId = json["id"] as? String,
+            let jsonName = json["name"] as? String,
+            let jsonImageURL = json["image_url"] as? String,
+            let jsonIsClosed = json["is_closed"] as? Bool,
+            let jsonYelpURL = json["url"] as? String,
+            let jsonReviewCount = json["review_count"] as? Int,
+            let jsonRating = json["rating"] as? Int,
+            let jsonLatitude = (json["coordinates"] as? [String:Any])?["latitude"] as? Double,
+            let jsonLongitude = (json["coordinates"] as? [String:Any])?["longitude"] as? Double,
+            let jsonPrice = json["price"] as? String,
+            let jsonLocation = json["location"] as? [String:Any],
+            let jsonPhone = json["phone"] as? String,
+            let jsonDisplayPhone = json["display_phone"] as? String,
+            let jsonDistance = json["distance"] as? Double else {
+            return nil
+        }
+        self.id = jsonId
+        self.name = jsonName
+        self.imageURL = jsonImageURL
+        self.isClosed = jsonIsClosed
+        self.yelpURL = jsonYelpURL
+        self.reviewCount = jsonReviewCount
+        self.rating = jsonRating
+        self.latitude = jsonLatitude
+        self.longitude = jsonLongitude
+        self.price = jsonPrice
+        guard let businessLocation = Location(json: jsonLocation) else { return nil }
+        self.location = businessLocation
+        self.phone = jsonPhone
+        self.displayPhone = jsonDisplayPhone
+        self.distance = jsonDistance
+    }
 }
-
-//
-//"id": "tonys-pizza-napoletana-san-francisco",
-//"name": "Tony's Pizza Napoletana",
-//"image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/d8tM3JkgYW0roXBygLoSKg/o.jpg",
-//"is_closed": false,
-//"url": "https://www.yelp.com/biz/tonys-pizza-napoletana-san-francisco?adjust_creative=wpNIOEcOyUfL2rtQHVtyhQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=wpNIOEcOyUfL2rtQHVtyhQ",
-//"review_count": 3649,
-//"categories": [
-//{
-//"alias": "pizza",
-//"title": "Pizza"
-//},
-//{
-//"alias": "italian",
-//"title": "Italian"
-//},
-//{
-//"alias": "cocktailbars",
-//"title": "Cocktail Bars"
-//}
-//],
-//"rating": 4,
-//"coordinates": {
-//    "latitude": 37.80032,
-//    "longitude": -122.40894
-//},
-//"transactions": [],
-//"price": "$$",
-//"location": {
-//    "address1": "1570 Stockton St",
-//    "address2": "",
-//    "address3": "",
-//    "city": "San Francisco",
-//    "zip_code": "94133",
-//    "country": "US",
-//    "state": "CA",
-//    "display_address": [
-//    "1570 Stockton St",
-//    "San Francisco, CA 94133"
-//    ]
-//},
-//"phone": "+14158359888",
-//"display_phone": "(415) 835-9888",
-//"distance": 1692.1801327639998

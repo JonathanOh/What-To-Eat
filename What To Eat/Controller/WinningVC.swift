@@ -36,6 +36,11 @@ class WinningVC: UIViewController {
         navigationItem.setHidesBackButton(true, animated: false)
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Reset Round", style: .plain, target: self, action: #selector(tappedResetButton))
         //navigationController?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Reset Round", style: .plain, target: self, action: #selector(tappedResetButton))
+        
+        let restaurantRequest: RestaurantSearchRequest = RestaurantSearchRequest(location: RestaurantSearchRequest.TestConstants.location, latitude: nil, longitude: nil)
+        restaurantRequest.send(RestaurantSearchRequest.TestConstants.fullEndpoint) { businesses in
+            _ = businesses.map { print($0.id) }
+        }
     }
     
     func tappedResetButton() {

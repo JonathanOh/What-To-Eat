@@ -37,7 +37,16 @@ class HTTPService {
     func requestJSONArray(_ endPoint: String, response: @escaping ([[String:Any]]) -> Void) {
         // Construct an endpoint and send the request off
         guard let url = URL(string: endPoint) else { return }
-        URLSession.shared.dataTask(with: url) { (data, urlResponse, error) in
+        var request = URLRequest(url: url)
+        //request.allHTTPHeaderFields = ["Authorization":"Bearer \(token?.accessToken ?? "")"]
+        request.httpMethod = "GET"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("Bearer \(token?.accessToken ?? "")", forHTTPHeaderField: "Authorization")
+        print("Bearer \(token?.accessToken ?? "")")
+        URLSession.shared.dataTask(with: request) { (data, urlResponse, error) in
+            if let err = error {
+                print("Error!!: \(err)")
+            }
             if let data = data {
                 guard let json = JSONSerializer.getSerializedArrayFrom(data: data) else { return }
                 response(json)
