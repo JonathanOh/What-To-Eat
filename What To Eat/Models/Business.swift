@@ -26,7 +26,7 @@ struct Business {
     let distance: Double
     let errorString = "Could not get JSON"
     
-    init?(json: [String:Any]) {
+    init(json: [String:Any]) {
         guard let jsonId = json["id"] as? String,
             let jsonName = json["name"] as? String,
             let jsonImageURL = json["image_url"] as? String,
@@ -41,7 +41,21 @@ struct Business {
             let jsonPhone = json["phone"] as? String,
             let jsonDisplayPhone = json["display_phone"] as? String,
             let jsonDistance = json["distance"] as? Double else {
-            return nil
+                self.id = "error"
+                self.name = "error"
+                self.imageURL = "error"
+                self.isClosed = true
+                self.yelpURL = "error"
+                self.reviewCount = 0
+                self.rating = 0
+                self.latitude = 0
+                self.longitude = 0
+                self.price = "error"
+                self.location = Location(json: ["":""])
+                self.phone = "error"
+                self.displayPhone = "error"
+                self.distance = 0
+                return
         }
         self.id = jsonId
         self.name = jsonName
@@ -53,8 +67,7 @@ struct Business {
         self.latitude = jsonLatitude
         self.longitude = jsonLongitude
         self.price = jsonPrice
-        guard let businessLocation = Location(json: jsonLocation) else { return nil }
-        self.location = businessLocation
+        self.location = Location(json: jsonLocation)
         self.phone = jsonPhone
         self.displayPhone = jsonDisplayPhone
         self.distance = jsonDistance

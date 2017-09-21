@@ -12,12 +12,14 @@ import Foundation
 class HTTPService {
     
     static let shared = HTTPService()
-    
-    enum RequestType: String {
-        case POST
-        case GET
-    }
     private var token: Token?
+    
+    func getRequestForURL(_ url: URL) -> URLRequest {
+        var request: URLRequest = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.addValue("Bearer \(token?.accessToken ?? "")", forHTTPHeaderField: "Authorization")
+        return request
+    }
     
     func refreshTokenIfNeeded(_ clientId: String, clientSecret: String) {
         if let nonNilToken = token {
@@ -25,7 +27,7 @@ class HTTPService {
         }
         guard let url = URL(string: "https://api.yelp.com/oauth2/token?client_id=\(clientId)&client_secret=\(clientSecret)") else { return }
         var request = URLRequest(url: url)
-        request.httpMethod = RequestType.POST.rawValue
+        request.httpMethod = "POST"
         URLSession.shared.dataTask(with: request) { (data, urlresponse, error) in
             if let err = error { print("we have an error: \(err)") }
             guard let data = data,
@@ -37,18 +39,24 @@ class HTTPService {
     func requestJSONArray(_ endPoint: String, response: @escaping ([[String:Any]]) -> Void) {
         // Construct an endpoint and send the request off
         guard let url = URL(string: endPoint) else { return }
-        var request = URLRequest(url: url)
-        //request.allHTTPHeaderFields = ["Authorization":"Bearer \(token?.accessToken ?? "")"]
-        request.httpMethod = "GET"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("Bearer \(token?.accessToken ?? "")", forHTTPHeaderField: "Authorization")
-        print("Bearer \(token?.accessToken ?? "")")
+        let request = getRequestForURL(url)
         URLSession.shared.dataTask(with: request) { (data, urlResponse, error) in
             if let err = error {
                 print("Error!!: \(err)")
             }
             if let data = data {
                 guard let json = JSONSerializer.getSerializedArrayFrom(data: data) else { return }
+                response(json)
+            }
+        }.resume()
+    }
+    
+    func requestJSONDictionary(_ endPoint: String, response: @escaping ([String:Any]) -> Void) {
+        guard let url = URL(string: endPoint) else { return }
+        let request = getRequestForURL(url)
+        URLSession.shared.dataTask(with: request) { (data, urlResponse, error) in
+            if let data = data {
+                guard let json = JSONSerializer.getSerializedDictionaryFrom(data: data) else { return }
                 response(json)
             }
         }.resume()

@@ -18,7 +18,7 @@ struct Location {
     let state: String
     let displayAddress: [String]
     
-    init?(json: [String:Any]) {
+    init(json: [String:Any]) {
         guard let jsonAddressOne = json["address1"] as? String,
             let jsonAddressTwo = json["address2"] as? String,
             let jsonAddressThree = json["address3"] as? String,
@@ -26,7 +26,17 @@ struct Location {
             let jsonZipCode = json["zip_code"] as? String,
             let jsonCountry = json["country"] as? String,
             let jsonState = json["state"] as? String,
-            let jsonDisplayAddress = json["display_address"] as? [String] else { return nil }
+            let jsonDisplayAddress = json["display_address"] as? [String] else {
+                self.addressOne = "error"
+                self.addressTwo = "error"
+                self.addressThree = "error"
+                self.city = "error"
+                self.zipCode = "error"
+                self.country = "error"
+                self.state = "error"
+                self.displayAddress = ["error"]
+                return
+        }
         self.addressOne = jsonAddressOne
         self.addressTwo = jsonAddressTwo
         self.addressThree = jsonAddressThree

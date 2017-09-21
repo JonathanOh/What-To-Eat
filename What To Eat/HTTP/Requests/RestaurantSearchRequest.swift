@@ -39,14 +39,11 @@ class RestaurantSearchRequest {
     }
     
     func send(_ endPoint: String, businesses: @escaping ([Business]) -> Void) {
-        HTTPService.shared.requestJSONArray(endPoint) { jsonOfBusinesses in
-            var arrayOfBusiness = [Business]()
-            for business in jsonOfBusinesses {
-                guard let businessObject = Business(json: business) else { continue }
-                arrayOfBusiness.append(businessObject)
-            }
-            businesses(arrayOfBusiness)
-        }
+        HTTPService.shared.requestJSONDictionary(endPoint) { (jsonResponse) in
+            guard let arrayOfBusinesses = jsonResponse["businesses"] as? [[String:Any]] else { return }
+            let arrayOfBusinessModels = arrayOfBusinesses.map { Business(json:$0) }
+            _ = arrayOfBusinessModels.map { print($0.name) }
+        }        
     }
     
 }

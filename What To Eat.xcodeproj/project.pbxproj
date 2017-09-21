@@ -45,6 +45,12 @@
 		8B50BE581F6340B800202929 /* WinningVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BE561F6340B800202929 /* WinningVC.swift */; };
 		8B50BE5B1F6350D900202929 /* DishCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BE5A1F6350D900202929 /* DishCardView.swift */; };
 		8B50BE5C1F6350D900202929 /* DishCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BE5A1F6350D900202929 /* DishCardView.swift */; };
+		8B9F3E971F74820A00368DE1 /* RestaurantSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DED0131F67D2BF00236995 /* RestaurantSearchRequest.swift */; };
+		8B9F3E981F74826900368DE1 /* HTTPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DED0111F67D2A800236995 /* HTTPService.swift */; };
+		8B9F3E991F74827200368DE1 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0E20F01F70944600381046 /* Location.swift */; };
+		8B9F3E9A1F74827400368DE1 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0E20EE1F70934200381046 /* Business.swift */; };
+		8B9F3E9B1F74827F00368DE1 /* FoodChoiceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DECFD81F6108DF00236995 /* FoodChoiceVC.swift */; };
+		8B9F3E9C1F74828700368DE1 /* JSONSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0E207B1F68A2D600381046 /* JSONSerializer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -361,17 +367,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B9F3E971F74820A00368DE1 /* RestaurantSearchRequest.swift in Sources */,
 				84DECFFF1F613A1B00236995 /* Cuisine.swift in Sources */,
 				8B50BE581F6340B800202929 /* WinningVC.swift in Sources */,
 				84DED0051F6247AA00236995 /* RoundResults.swift in Sources */,
+				8B9F3E991F74827200368DE1 /* Location.swift in Sources */,
+				8B9F3E9B1F74827F00368DE1 /* FoodChoiceVC.swift in Sources */,
+				8B9F3E9A1F74827400368DE1 /* Business.swift in Sources */,
 				8B50BE5C1F6350D900202929 /* DishCardView.swift in Sources */,
 				84DED0021F613BBB00236995 /* Dish.swift in Sources */,
 				8B0E20821F6C62E300381046 /* Constants.swift in Sources */,
+				8B9F3E981F74826900368DE1 /* HTTPService.swift in Sources */,
 				84DED0011F613BB700236995 /* CuisineChoices.swift in Sources */,
 				8B0E207F1F6C5E0A00381046 /* Token.swift in Sources */,
 				8B50BE4F1F62108100202929 /* Extensions.swift in Sources */,
 				84DED0001F613A3F00236995 /* FoodTracker.swift in Sources */,
 				84DED00F1F67912600236995 /* DishCardViewManager.swift in Sources */,
+				8B9F3E9C1F74828700368DE1 /* JSONSerializer.swift in Sources */,
 				8B50BE551F6332CC00202929 /* Winner.swift in Sources */,
 				8B50BE521F621BCE00202929 /* WinChecker.swift in Sources */,
 				8B50BE4C1F61C69000202929 /* RoundCreator.swift in Sources */,
