@@ -42,7 +42,7 @@ class RestaurantSearchRequest {
         HTTPService.shared.requestJSONDictionary(endPoint) { (jsonResponse) in
             guard let arrayOfBusinesses = jsonResponse["businesses"] as? [[String:Any]] else { return }
             let arrayOfBusinessModels = arrayOfBusinesses.map { Business(json:$0) }
-            _ = arrayOfBusinessModels.map { print($0.name) }
+            businesses(arrayOfBusinessModels)
         }        
     }
     
